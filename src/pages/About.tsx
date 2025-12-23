@@ -1,7 +1,8 @@
 import Navbar from '../components/Navbar';
 import { motion } from 'framer-motion';
-import { Coffee, Trophy, Briefcase, Mail, Linkedin, FileText } from 'lucide-react';
-import imgEu71 from "figma:asset/5f6ebe676a5141fd55f82268d568797104511a79.png"; 
+import { Coffee, Trophy, Briefcase, Mail, Linkedin } from 'lucide-react';
+// CORREÇÃO: Caminho direto para a pasta assets (sem usar o atalho que removemos)
+import imgEu71 from "../assets/5f6ebe676a5141fd55f82268d568797104511a79.png"; 
 
 export default function About() {
   return (
