@@ -1,12 +1,12 @@
 import Navbar from '../components/Navbar';
 import { motion } from 'framer-motion';
 import { Coffee, Trophy, Briefcase, Mail, Linkedin } from 'lucide-react';
-// CORREÇÃO: Caminho direto para a pasta assets (sem usar o atalho que removemos)
-import imgEu71 from "../assets/5f6ebe676a5141fd55f82268d568797104511a79.png"; 
+// CORREÇÃO: Voltando para o nome original do arquivo que está na pasta
+import imgProfile from "../assets/5f6ebe676a5141fd55f82268d568797104511a79.png"; 
 
 export default function About() {
   return (
-    <div className="bg-[#f8f9fa] min-h-screen flex flex-col">
+    <div className="bg-background min-h-screen flex flex-col">
       <Navbar />
 
       <main className="flex-1 w-full max-w-5xl mx-auto px-6 py-12 md:py-20">
@@ -23,7 +23,7 @@ export default function About() {
                <img 
                 alt="Foto de Lívia Miranda" 
                 className="w-full h-full object-cover" 
-                src={imgEu71} 
+                src={imgProfile} 
               />
             </div>
           </motion.div>
@@ -35,22 +35,22 @@ export default function About() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
             >
-              <h1 className="font-mono font-bold text-3xl md:text-4xl mb-4 text-center md:text-left text-black">
+              <h1 className="font-mono font-bold text-3xl md:text-4xl mb-4 text-center md:text-left text-foreground">
                 Oi, eu sou a Lívia! 👋
               </h1>
-              <p className="font-mono text-base md:text-lg opacity-80 text-center md:text-left text-[#212529]">
+              <p className="font-mono text-base md:text-lg opacity-80 text-center md:text-left text-muted-foreground">
                 Product Designer apaixonada por inovação, IA e boas conversas.
               </p>
             </motion.div>
 
-            {/* Stats (Grid Responsivo) */}
-            <div className="grid grid-cols-3 gap-4 py-6 border-y border-black">
+            {/* Stats */}
+            <div className="grid grid-cols-3 gap-4 py-6 border-y border-border">
               {[
                 { icon: Briefcase, value: '3+', label: 'Anos exp.' },
                 { icon: Trophy, value: '15+', label: 'Projetos' },
                 { icon: Coffee, value: '∞', label: 'Cafés' }
               ].map((stat, i) => (
-                <div key={i} className="flex flex-col items-center gap-2 text-[#212529]">
+                <div key={i} className="flex flex-col items-center gap-2 text-foreground">
                   <stat.icon className="w-5 h-5 md:w-6 md:h-6" strokeWidth={1.5} />
                   <p className="font-mono font-bold text-xl md:text-2xl">{stat.value}</p>
                   <p className="font-mono text-xs text-center">{stat.label}</p>
@@ -58,8 +58,8 @@ export default function About() {
               ))}
             </div>
 
-            {/* Texto Descritivo */}
-            <div className="font-mono text-sm md:text-base flex flex-col gap-6 text-justify md:text-left text-[#212529]">
+            {/* Texto */}
+            <div className="font-mono text-sm md:text-base flex flex-col gap-6 text-justify md:text-left text-foreground">
               <p>
                 Sou <strong>publicitária de formação</strong> e migrei para o design de produto digital. 
                 Hoje combino minha visão estética com dados, cursando um <strong>MBA em Inteligência Artificial</strong>.
@@ -69,12 +69,12 @@ export default function About() {
               </p>
             </div>
 
-            {/* Botões de Contato */}
+            {/* Botões */}
             <div className="flex flex-col sm:flex-row gap-4 mt-4">
-              <a href="mailto:contato@liviamiranda.com" className="flex items-center justify-center gap-2 border-2 border-black px-6 py-3 font-mono font-bold text-[#212529] hover:bg-black hover:text-white transition-all">
+              <a href="mailto:contato@liviamiranda.com" className="flex items-center justify-center gap-2 border-2 border-black px-6 py-3 font-mono font-bold text-foreground hover:bg-black hover:text-white transition-all">
                 <Mail size={18} /> Enviar Email
               </a>
-              <a href="https://linkedin.com" target="_blank" className="flex items-center justify-center gap-2 border-2 border-black px-6 py-3 font-mono font-bold text-[#212529] hover:bg-black hover:text-white transition-all">
+              <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 border-2 border-black px-6 py-3 font-mono font-bold text-foreground hover:bg-black hover:text-white transition-all">
                 <Linkedin size={18} /> LinkedIn
               </a>
             </div>
