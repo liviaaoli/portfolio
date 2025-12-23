@@ -1,21 +1,11 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react-swc';
-import path from 'path';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite'
 
+// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
-  resolve: {
-    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
-    alias: {
-      '@': path.resolve(__dirname, './src'),
-    },
-  },
-  build: {
-    target: 'esnext',
-    outDir: 'dist', // AQUI ESTAVA O ERRO: Mudamos de 'build' para 'dist'
-  },
-  server: {
-    port: 3000,
-    open: true,
-  },
-});
+  plugins: [
+    react(),
+    tailwindcss(), // <--- Esse plugin é essencial para o CSS funcionar
+  ],
+})
