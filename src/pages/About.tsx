@@ -1,8 +1,10 @@
-import Navbar from '../components/Navbar';
+import React from 'react';
+import Navbar from '../components/navbar';
 import { motion } from 'framer-motion';
-import { Coffee, Trophy, Briefcase, Mail, Linkedin } from 'lucide-react';
-// CORREÇÃO: Importando com o nome exato do arquivo que você tem hoje
-import imgProfile from "../assets/5f6ebe676a5141fd55f82268d568797104511a79.png"; 
+import { Coffee, Trophy, Briefcase, EnvelopeSimple, LinkedinLogo, FilePdf } from '@phosphor-icons/react';
+
+// @ts-ignore
+import imgProfile from "../assets/eu.png"; 
 
 export default function About() {
   return (
@@ -48,7 +50,9 @@ export default function About() {
                 { icon: Coffee, value: '∞', label: 'Cafés' }
               ].map((stat, i) => (
                 <div key={i} className="flex flex-col items-center gap-2 text-foreground">
-                  <stat.icon className="w-5 h-5 md:w-6 md:h-6" strokeWidth={1.5} />
+                  <span className="opacity-80">
+                    <stat.icon />
+                  </span>
                   <p className="font-mono font-bold text-xl md:text-2xl">{stat.value}</p>
                   <p className="font-mono text-xs text-center">{stat.label}</p>
                 </div>
@@ -60,17 +64,17 @@ export default function About() {
                 Sou <strong>publicitária de formação</strong> e migrei para o design de produto digital. 
                 Hoje combino minha visão estética com dados, cursando um <strong>MBA em Inteligência Artificial</strong>.
               </p>
-              <p>
-                No tempo livre, sou gamer dedicada 🎮, leitora e fotógrafa amadora. Acredito que a tecnologia deve servir às pessoas, e não o contrário.
-              </p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 mt-4">
               <a href="mailto:contato@liviamiranda.com" className="flex items-center justify-center gap-2 border-2 border-black px-6 py-3 font-mono font-bold text-foreground hover:bg-black hover:text-white transition-all">
-                <Mail size={18} /> Enviar Email
+                <EnvelopeSimple /> Enviar Email
               </a>
               <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 border-2 border-black px-6 py-3 font-mono font-bold text-foreground hover:bg-black hover:text-white transition-all">
-                <Linkedin size={18} /> LinkedIn
+                <LinkedinLogo /> LinkedIn
+              </a>
+              <a href="/cv.pdf" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 border-2 border-black px-6 py-3 font-mono font-bold text-foreground hover:bg-black hover:text-white transition-all">
+                <FilePdf /> Currículo
               </a>
             </div>
           </div>

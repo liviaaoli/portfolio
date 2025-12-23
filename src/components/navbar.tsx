@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, FileText, Linkedin, Mail } from 'lucide-react';
+import { Menu, X, FileText, Linkedin, Mail } from '@phosphor-icons/react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-export default function Navbar() {
+export default function navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const links = [
