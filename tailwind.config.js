@@ -4,10 +4,13 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["'Space Mono'", "monospace"],
+        // Fonte Sans-serif limpa para leitura (Guideline)
+        sans: ["Inter", "system-ui", "sans-serif"], 
+        // Fonte Mono para detalhes técnicos ou labels (Opcional)
         mono: ["'Space Mono'", "monospace"],
       },
       colors: {
+        // Mantendo seu sistema de tokens HSL (Boa prática!)
         border: "hsl(var(--border))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
@@ -21,6 +24,8 @@ export default {
         },
       },
       borderRadius: {
+        // Ajustando para o arredondamento de 24px da sua Guideline
+        xl: "24px", 
         lg: "var(--radius)", 
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",

@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ArrowDown } from '@phosphor-icons/react';
-import navbar from '../components/navbar';
+import { ArrowRightIcon, ArrowDownIcon } from '@phosphor-icons/react';
+import Navbar from '../components/navbar';
 import ProjectCard from '../components/project-card';
 import Footer from '../components/footer';
 
@@ -28,7 +28,7 @@ export default function Home() {
 
   return (
     <div className="bg-background min-h-screen flex flex-col">
-      <navbar />
+      <Navbar />
 
       <main className="flex-1 w-full max-w-[1040px] mx-auto px-6 lg:px-0">
         <section className="min-h-[70vh] flex flex-col justify-center items-center text-center gap-10 md:gap-12 py-12 md:py-20">
@@ -38,12 +38,9 @@ export default function Home() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="flex flex-col gap-6"
           >
-            <h1>
-              Oi, eu sou a Lívia!<br />
-              Bem-vindo(a) ao meu portfólio ;)
-            </h1>
+            <h1>Oi, eu sou a Lívia!<br />Bem-vindo(a) ao meu portfólio ;)</h1>
             <p className="mx-auto">
-              Sou Product Designer Jr. na Bwtech, em Belo Horizonte, onde crio soluções para ajudar empresas de telecom a melhorar suas redes
+              Sou Product Designer Jr. na Bwtech, em Belo Horizonte, onde crio soluções para ajudar empresas de telecom a otimizar suas redes
             </p>
           </motion.div>
 
@@ -58,7 +55,7 @@ export default function Home() {
               animate={{ y: [0, 6, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
             >
-              <ArrowDown size={24} weight="bold" />
+              <ArrowDownIcon size={24} weight="bold" />
             </motion.div>
           </motion.div>
         </section>
@@ -73,7 +70,7 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              Projetos em Destaque
+              Projetos
             </motion.h2>
 
             <Link to="/projetos">
@@ -83,27 +80,24 @@ export default function Home() {
                 transition={{ duration: 0.4, ease: "easeOut" }}
               >
                 Ver todos os projetos
-                <ArrowRight size={16} weight="bold" />
+                <ArrowRightIcon size={16} weight="bold" />
               </motion.div>
             </Link>
           </div>
 
           <div className="flex flex-col gap-20">
             {projects.map((project, index) => {
-              // RESOLUÇÃO: Desestruturamos para que a 'key' não entre no spread das props
+              // Correção definitiva da Key e Tipagem
               const { ...projectProps } = project;
               return (
-                <ProjectCard 
-                  key={index} 
-                  {...projectProps} 
-                />
+                <ProjectCard key={index} {...projectProps} />
               );
             })}
           </div>
         </section>
       </main>
 
-      <footer />
+      <Footer />
     </div>
   );
 }
