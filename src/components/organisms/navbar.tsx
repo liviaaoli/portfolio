@@ -20,9 +20,9 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 bg-background border-b border-border/50">
-      <div className="max-w-[1040px] mx-auto px-6 lg:px-0">
-        <div className="flex items-center justify-between h-16">
+<nav className="sticky top-0 z-50 bg-background border-b border-border">
+  <div className="w-full max-w-[1040px] mx-auto px-6 md:px-10"> {/* Adicionado max-w e mx-auto */}
+    <div className="flex items-center justify-between h-16">
           
           <Link to="/" className="group">
             <motion.span
@@ -54,29 +54,29 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Social Icons */}
-          <div className="hidden md:flex items-center gap-6">
-            <a href="mailto:livia146miranda@gmail.com" className="hover:opacity-60 transition-opacity duration-500">
-              <EnvelopeSimpleIcon size={20} weight="bold" />
+          {/* Social Icons - Visíveis agora também no mobile, fora do menu */}
+          <div className="flex items-center gap-4 md:gap-6">
+            <a href="mailto:livia146miranda@gmail.com" aria-label='Enviar email para Lívia' className="hover:opacity-60 transition-opacity duration-500">
+              <EnvelopeSimpleIcon size={20} weight="bold" aria-hidden="true" />
             </a>
-            <a href="https://linkedin.com/in/livia-miranda" target="_blank" rel="noreferrer" className="hover:opacity-60 transition-opacity duration-500">
-              <LinkedinLogoIcon size={20} weight="bold" />
+            <a href="https://linkedin.com/in/livia-miranda" aria-label='LinkedIn (abre em nova aba)' target="_blank" rel="noreferrer" className="hover:opacity-60 transition-opacity duration-500">
+              <LinkedinLogoIcon size={20} weight="bold" aria-hidden="true"  />
             </a>
-            <a href="https://github.com/liviaaoli" target="_blank" rel="noreferrer" className="hover:opacity-60 transition-opacity duration-500">
-              <ReadCvLogoIcon size={20} weight="bold" />
+            <a href="https://github.com/liviaaoli" aria-label='Currículo de Lívia (abre em nova aba)' target="_blank" rel="noreferrer" className="hover:opacity-60 transition-opacity duration-500">
+              <ReadCvLogoIcon size={20} weight="bold" aria-hidden="true" />
             </a>
+            
+            {/* Mobile Menu Button - Só aparece no mobile */}
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="md:hidden p-2 hover:opacity-60 transition-opacity duration-300 ml-2"
+            >
+              {isMenuOpen ? <XIcon size={24} weight="bold" aria-hidden="true" /> : <ListIcon size={24} weight="bold" aria-hidden="true" />}
+            </button>
           </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 hover:opacity-60 transition-opacity duration-300"
-          >
-            {isMenuOpen ? <XIcon size={24} weight="bold" /> : <ListIcon size={24} weight="bold" />}
-          </button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation Menu */}
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
@@ -84,7 +84,7 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -4 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
-              className="md:hidden absolute left-0 right-0 bg-background border-b border-border px-6 pb-8"
+              className="md:hidden absolute left-0 right-0 bg-background border-b border-border px-6 pb-8 shadow-lg"
             >
               <div className="flex flex-col gap-6 pt-4">
                 {navItems.map((item) => (

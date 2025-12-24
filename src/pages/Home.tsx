@@ -2,9 +2,12 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRightIcon, ArrowDownIcon } from '@phosphor-icons/react';
-import Navbar from '../components/navbar';
-import ProjectCard from '../components/project-card';
-import Footer from '../components/footer';
+
+// Imports corrigidos para a pasta organisms
+import Navbar from '../components/organisms/navbar';
+import ProjectCard from '../components/organisms/project-card';
+import Footer from '../components/organisms/footer';
+// StatItem removido pois não é usado aqui
 
 export default function Home() {
   const projects = [
@@ -31,15 +34,19 @@ export default function Home() {
       <Navbar />
 
       <main className="flex-1 w-full max-w-[1040px] mx-auto px-6 lg:px-0">
+        {/* Seção Hero: Centralizada e Balanceada */}
         <section className="min-h-[70vh] flex flex-col justify-center items-center text-center gap-10 md:gap-12 py-12 md:py-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="flex flex-col gap-6"
+            className="flex flex-col gap-6 max-w-[800px]"
           >
-            <h1>Oi, eu sou a Lívia!<br />Bem-vindo(a) ao meu portfólio ;)</h1>
-            <p className="mx-auto">
+            {/* text-balance evita viúvas */}
+            <h1 className="text-balance">
+              Oi, eu sou a Lívia!<br />Bem-vindo(a) ao meu portfólio ;)
+            </h1>
+            <p className="text-lg text-muted-foreground mx-auto max-w-[600px] text-balance">
               Sou Product Designer Jr. na Bwtech, em Belo Horizonte, onde crio soluções para ajudar empresas de telecom a otimizar suas redes
             </p>
           </motion.div>
@@ -72,27 +79,12 @@ export default function Home() {
             >
               Projetos
             </motion.h2>
-
-            <Link to="/projetos">
-              <motion.div
-                className="inline-flex items-center gap-2 text-sm opacity-60 hover:opacity-100 transition-opacity duration-500"
-                whileHover={{ x: 4 }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
-              >
-                Ver todos os projetos
-                <ArrowRightIcon size={16} weight="bold" />
-              </motion.div>
-            </Link>
           </div>
 
           <div className="flex flex-col gap-20">
-            {projects.map((project, index) => {
-              // Correção definitiva da Key e Tipagem
-              const { ...projectProps } = project;
-              return (
-                <ProjectCard key={index} {...projectProps} />
-              );
-            })}
+            {projects.map((project, index) => (
+              <ProjectCard key={index} {...project} />
+            ))}
           </div>
         </section>
       </main>

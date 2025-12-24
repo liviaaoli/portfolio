@@ -4,11 +4,17 @@
 
 @layer base {
   :root {
+    /* Background e Foreground: Contraste Máximo */
     --background: 210 17% 98%;
     --foreground: 210 11% 15%;
-    --muted: 210 17% 92%;
-    --muted-foreground: 215 16% 47%;
+
+    /* Muted: Ajustado para Contraste Acessível (min 4.5:1) */
+    --muted: 210 5% 92%;              /* Para fundos sutis */
+    --muted-foreground: 210 10% 42%;   /* Para textos secundários/labels */
+
+    /* Borda: 10% de opacidade para refinamento visual */
     --border: 210 11% 15% / 0.1; 
+    
     --primary: 210 11% 15%;
     --primary-foreground: 210 17% 98%;
     --radius: 24px;
@@ -17,21 +23,32 @@
   .dark {
     --background: 210 11% 15%;
     --foreground: 210 17% 98%;
-    --muted: 217 32% 17%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 210 10% 25%;
+    --muted-foreground: 210 10% 70%;
     --border: 210 17% 98% / 0.1;
   }
 
+  /* Tipografia escalável e acessível (Guidelines) */
   h1 { @apply text-[clamp(2rem,4vw,3rem)] font-bold leading-[1.1] -tracking-[0.03em] max-w-[20ch]; }
   h2 { @apply text-[clamp(1.5rem,3vw,2rem)] font-bold leading-[1.2] -tracking-[0.02em]; }
   h3 { @apply text-[clamp(1.125rem,2vw,1.5rem)] font-bold leading-[1.4] max-w-[35ch]; }
+  
+  /* Garantindo legibilidade do corpo do texto */
   p, li { @apply text-[1rem] leading-[1.7] max-w-[70ch]; }
   
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background text-foreground font-sans antialiased selection:bg-foreground selection:text-background;
   }
 
+  /* Aplicação global de bordas suaves */
   * {
     @apply border-border;
+  }
+}
+
+/* Utilitário para focar em acessibilidade via teclado */
+@layer utilities {
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background;
   }
 }
