@@ -18,7 +18,7 @@
 
 ## Colors & Aesthetic
 * **Background:** Off-white sólido (`#f8f9fa`). Evitar transparências excessivas no fundo para manter contraste.
-* **Text:** Dark gray profissional (`#262c31`). 
+* **Text:** Dark gray profissional (`#262c31`).
 * **Contrast:** Manter ratio mínimo de **4.5:1** para textos normais (WCAG AA).
 
 ## Spacing (System of 4px)
@@ -32,17 +32,21 @@
 * **Style:** Borda inferior sutil (`border-b border-border/50`).
 * **Interactions:** Underline animado via `layoutId` do Framer Motion.
 
-### 2. Icons (Phosphor Icons)
-* **Nomenclatura:** Sufixo `Icon` obrigatório.
-* **Weight:** Sempre `weight="bold"`.
-* **Size:** 20px para Navbar, 24px para Stats/Footer.
-* **TS Fix:** Ícones decorativos com `aria-hidden="true"`. Classes de animação sempre no `<span>` pai.
+### 2. Logo
+* **Tamanho:** `text-base` (16px) para garantir proeminência e legibilidade em Navbar e Footer.
+* **Interatividade:** Comportamento de link (`<Link to="/" />`) com animação de `whileHover` e feedback de `hover:opacity-60`.
 
-### 3. Accessibility (a11y)
-* **Interactive:** Links externos com `aria-label` descritivo (ex: "LinkedIn (abre em nova aba)").
+### 3. Icons (Phosphor Icons)
+* **Nomenclatura:** Sufixo `Icon` obrigatório.
+* **Weight:** Sempre `weight=\"bold\"`.
+* **Size:** 20px para Navbar, 24px para Stats/Footer.
+* **TS Fix:** Ícones decorativos com `aria-hidden=\"true\"`. Classes de animação sempre no `<span>` pai.
+
+### 4. Accessibility (a11y)
+* **Interactive:** Links externos com `aria-label` descritivo (ex: \"LinkedIn (abre em nova aba)\").
 * **Focus:** Estados de foco visíveis para navegação via teclado.
 * **Semantics:** `button` para ações, `Link/a` para navegação.
 
-### 4. Animations
+### 5. Animations
 * **Transitions:** Padrão **0.8s** com `easeOut`.
 * **Micro-interações:** Hover com deslocamento sutil (`y: -2`) ou setas com opacidade progressiva.

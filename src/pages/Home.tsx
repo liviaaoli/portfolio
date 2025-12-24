@@ -1,13 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { ArrowRightIcon, ArrowDownIcon } from '@phosphor-icons/react';
-
-// Imports corrigidos para a pasta organisms
-import Navbar from '../components/organisms/navbar';
+import { ArrowDownIcon } from '@phosphor-icons/react';
 import ProjectCard from '../components/organisms/project-card';
-import Footer from '../components/organisms/footer';
-// StatItem removido pois não é usado aqui
 
 export default function Home() {
   const projects = [
@@ -30,66 +24,58 @@ export default function Home() {
   ];
 
   return (
-    <div className="bg-background min-h-screen flex flex-col">
-      <Navbar />
+    <main className="flex-1 w-full max-w-[1040px] mx-auto px-6 lg:px-0">
+      {/* Seção Hero */}
+      <section className="min-h-[70vh] flex flex-col justify-center items-center text-center gap-10 md:gap-12 py-12 md:py-20">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="flex flex-col gap-6 max-w-[800px]"
+        >
+          <h1 className="text-balance">
+            Oi, eu sou a Lívia!<br /><span className="whitespace-nowrap">Bem-vindo(a) ao meu portfólio ;)</span>
+          </h1>
+          <p className="text-lg text-muted-foreground mx-auto max-w-[600px] text-balance">
+            Sou Product Designer Jr. na Bwtech, em Belo Horizonte, onde crio soluções para ajudar empresas de telecom a otimizar suas redes
+          </p>
+        </motion.div>
 
-      <main className="flex-1 w-full max-w-[1040px] mx-auto px-6 lg:px-0">
-        {/* Seção Hero: Centralizada e Balanceada */}
-        <section className="min-h-[70vh] flex flex-col justify-center items-center text-center gap-10 md:gap-12 py-12 md:py-20">
+        <motion.div
+          className="flex flex-col items-center gap-2"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 1, ease: "easeOut" }}
+        >
+          <p className="text-sm opacity-60 font-sans">Conheça o meu trabalho</p>
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="flex flex-col gap-6 max-w-[800px]"
+            animate={{ y: [0, 6, 0] }}
+            transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
           >
-            {/* text-balance evita viúvas */}
-            <h1 className="text-balance">
-              Oi, eu sou a Lívia!<br />Bem-vindo(a) ao meu portfólio ;)
-            </h1>
-            <p className="text-lg text-muted-foreground mx-auto max-w-[600px] text-balance">
-              Sou Product Designer Jr. na Bwtech, em Belo Horizonte, onde crio soluções para ajudar empresas de telecom a otimizar suas redes
-            </p>
+            <ArrowDownIcon size={24} weight="bold" />
           </motion.div>
+        </motion.div>
+      </section>
 
-          <motion.div
-            className="flex flex-col items-center gap-2"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 1, ease: "easeOut" }}
-          >
-            <p className="text-sm opacity-60 font-sans">Conheça o meu trabalho</p>
-            <motion.div
-              animate={{ y: [0, 6, 0] }}
-              transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-            >
-              <ArrowDownIcon size={24} weight="bold" />
-            </motion.div>
-          </motion.div>
-        </section>
+      <div className="w-full border-t border-border mb-12 md:mb-20" />
 
-        <div className="w-full border-t border-border mb-12 md:mb-20" />
+      {/* Seção de Projetos */}
+      <section id="projetos" className="flex flex-col gap-16 md:gap-20 pb-20">
+        <motion.h2
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          Projetos
+        </motion.h2>
 
-        <section id="projetos" className="flex flex-col gap-16 md:gap-20 pb-20">
-          <div className="flex items-center justify-between">
-            <motion.h2
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              Projetos
-            </motion.h2>
-          </div>
-
-          <div className="flex flex-col gap-20">
-            {projects.map((project, index) => (
-              <ProjectCard key={index} {...project} />
-            ))}
-          </div>
-        </section>
-      </main>
-
-      <Footer />
-    </div>
+        <div className="flex flex-col gap-20">
+          {projects.map((project, index) => (
+            <ProjectCard key={index} {...project} />
+          ))}
+        </div>
+      </section>
+    </main>
   );
 }

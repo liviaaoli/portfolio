@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { ArrowRightIcon } from '@phosphor-icons/react'; // Ajustado para Phosphor Icons
+import { ArrowRight, ArrowRightIcon } from '@phosphor-icons/react'; // Ajustado para Phosphor Icons
 
 interface ProjectCardProps {
   title: string;
@@ -66,7 +66,7 @@ export default function ProjectCard({
               transition={{ duration: 0.4, ease: "easeOut" }}
             >
               Confira
-              <ArrowRight size={16} weight="bold" />
+              <ArrowRightIcon size={16} weight="bold" />
             </motion.a>
           ) : (
             <Link to={link}>
