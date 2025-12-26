@@ -33,10 +33,10 @@ export default function Home() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="flex flex-col gap-6 w-full max-w-[800px] items-center"
         >
-          {/* MANTIDO: Fontes e estilos originais das guidelines */}
           <h1 className="text-[clamp(2rem,4vw,3rem)] leading-tight flex flex-col items-center">
             <span className="block">Oi, eu sou a Lívia!</span>
-            <span className="block whitespace-nowrap">
+            {/* Removido whitespace-nowrap para garantir que o texto não ultrapasse a margem no mobile */}
+            <span className="block text-balance">
               Bem-vindo(a) ao meu portfólio ;)
             </span>
           </h1>
