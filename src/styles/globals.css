@@ -13,7 +13,7 @@
     --muted-foreground: 210 10% 42%;   /* Para textos secundários/labels */
 
     /* Borda: 10% de opacidade para refinamento visual */
-    --border: 210 11% 15% / 0.1; 
+    --border: 210 11% 15% / 0.24; 
     
     --primary: 210 11% 15%;
     --primary-foreground: 210 17% 98%;
@@ -25,7 +25,7 @@
     --foreground: 210 17% 98%;
     --muted: 210 10% 25%;
     --muted-foreground: 210 10% 70%;
-    --border: 210 17% 98% / 0.1;
+    --border: 210 17% 98% / 0.24;
   }
 
   /* Tipografia escalável e acessível (Guidelines) */

@@ -34,7 +34,7 @@ const Button = forwardRef<HTMLAnchorElement, ButtonProps>(
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          className={baseClass}
+          className={`${baseClass} focus-ring rounded-sm`}
           {...motionProps}
         >
           {content}
@@ -43,7 +43,7 @@ const Button = forwardRef<HTMLAnchorElement, ButtonProps>(
     }
 
     return (
-      <Link to={href} className="no-underline">
+      <Link to={href} className="no-underline focus-ring rounded-sm">
         <motion.div
           className={baseClass}
           {...motionProps}

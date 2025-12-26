@@ -6,7 +6,7 @@ export default function Logo() {
   return (
     <Link 
       to="/" 
-      className="group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400"
+      className="group focus-ring rounded-sm"
       aria-label="Lívia Miranda - Voltar para a página inicial"
     >
       <motion.span

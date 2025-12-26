@@ -50,7 +50,7 @@ export default function Navbar() {
                   <a 
                     href="mailto:livia146miranda@gmail.com" 
                     aria-label='Enviar email para Lívia' 
-                    className="text-foreground hover:opacity-60 transition-opacity duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400 rounded-sm"
+                    className="text-foreground hover:opacity-60 transition-opacity duration-500 focus-ring rounded-sm"
                   >
                     <EnvelopeSimpleIcon size={20} weight="bold" aria-hidden="true" />
                   </a>
@@ -68,7 +68,7 @@ export default function Navbar() {
                     aria-label='LinkedIn (abre em nova aba)' 
                     target="_blank" 
                     rel="noreferrer" 
-                    className="text-foreground hover:opacity-60 transition-opacity duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400 rounded-sm"
+                    className="text-foreground hover:opacity-60 transition-opacity duration-500 focus-ring rounded-sm"
                   >
                     <LinkedinLogoIcon size={20} weight="bold" aria-hidden="true" />
                   </a>
@@ -86,7 +86,7 @@ export default function Navbar() {
                     aria-label='Currículo de Lívia (abre em nova aba)' 
                     target="_blank" 
                     rel="noreferrer" 
-                    className="text-foreground hover:opacity-60 transition-opacity duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400 rounded-sm"
+                    className="text-foreground hover:opacity-60 transition-opacity duration-500 focus-ring rounded-sm"
                   >
                     <ReadCvLogoIcon size={20} weight="bold" aria-hidden="true" />
                   </a>
@@ -100,7 +100,7 @@ export default function Navbar() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2 hover:opacity-60 transition-opacity duration-300 ml-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400"
+              className="md:hidden p-2 hover:opacity-60 transition-opacity duration-300 ml-2 focus-ring rounded-sm"
               aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
             >
               {isMenuOpen ? <XIcon size={24} weight="bold" aria-hidden="true" /> : <ListIcon size={24} weight="bold" aria-hidden="true" />}
@@ -133,7 +133,7 @@ export default function Navbar() {
                   <a 
                     href="mailto:livia146miranda@gmail.com" 
                     aria-label='Enviar email para Lívia' 
-                    className="p-2 rounded-sm text-foreground hover:opacity-60 transition-opacity duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400"
+                    className="p-2 rounded-sm text-foreground hover:opacity-60 transition-opacity duration-500 focus-ring"
                   >
                     <EnvelopeSimpleIcon size={24} weight="bold" aria-hidden="true" />
                   </a>
@@ -142,7 +142,7 @@ export default function Navbar() {
                     aria-label='LinkedIn (abre em nova aba)' 
                     target="_blank" 
                     rel="noreferrer" 
-                    className="p-2 rounded-sm text-foreground hover:opacity-60 transition-opacity duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400"
+                    className="p-2 rounded-sm text-foreground hover:opacity-60 transition-opacity duration-500 focus-ring"
                   >
                     <LinkedinLogoIcon size={24} weight="bold" aria-hidden="true" />
                   </a>
@@ -151,7 +151,7 @@ export default function Navbar() {
                     aria-label='Currículo de Lívia (abre em nova aba)' 
                     target="_blank" 
                     rel="noreferrer" 
-                    className="p-2 rounded-sm text-foreground hover:opacity-60 transition-opacity duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400"
+                    className="p-2 rounded-sm text-foreground hover:opacity-60 transition-opacity duration-500 focus-ring"
                   >
                     <ReadCvLogoIcon size={24} weight="bold" aria-hidden="true" />
                   </a>

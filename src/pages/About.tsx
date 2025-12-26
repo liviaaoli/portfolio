@@ -9,6 +9,7 @@ import {
   WrenchIcon 
 } from '@phosphor-icons/react';
 import StatItem from '../components/atoms/stat-item';
+import eu from '../assets/eu.png';
 
 export default function About() {
   return (
@@ -26,7 +27,7 @@ export default function About() {
             <img
               alt="Foto de Lívia Miranda"
               className="w-full h-full object-cover"
-              src="/src/assets/eu.png" 
+              src={eu} 
             />
           </div>
         </motion.div>

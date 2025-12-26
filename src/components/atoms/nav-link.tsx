@@ -11,7 +11,7 @@ export default function NavLink({ to, label }: NavLinkProps) {
   return (
     <Link
       to={to}
-      className="text-[14px] leading-[1.7] text-muted-foreground hover:text-foreground hover:underline flex items-center gap-2 group transition-colors w-fit focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400"
+      className="text-[14px] leading-[1.7] text-muted-foreground hover:text-foreground hover:underline flex items-center gap-2 group transition-colors w-fit focus-ring rounded-sm"
     >
       {label}
       <span

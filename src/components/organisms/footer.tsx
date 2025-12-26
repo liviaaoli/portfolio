@@ -25,7 +25,7 @@ export default function Footer() {
 
           {/* Coluna 2: Navegação */}
           <div className="flex flex-col gap-3">
-            <p className="text-[12px] leading-[1.7] uppercase tracking-widest text-muted-foreground/60">Navegação</p>
+            <p className="text-[12px] leading-[1.7] uppercase tracking-widest text-muted-foreground">Navegação</p>
             <nav className="flex flex-col gap-2">
               <NavLink to="/" label="Início" />
               <NavLink to="/sobre-mim" label="Sobre mim" />
@@ -34,7 +34,7 @@ export default function Footer() {
 
           {/* Coluna 3: Contacto */}
           <div className="flex flex-col gap-3">
-            <p className="text-[12px] leading-[1.7] uppercase tracking-widest text-muted-foreground/60">Contato</p>
+            <p className="text-[12px] leading-[1.7] uppercase tracking-widest text-muted-foreground">Contato</p>
             <div className="flex flex-col gap-2">
               <SocialLink href="mailto:livia146miranda@gmail.com" label="Email" isExternal={false} />
               <SocialLink href="https://www.linkedin.com/in/liviamirandadeoliveira/" label="LinkedIn" />
@@ -43,11 +43,11 @@ export default function Footer() {
 
           {/* Coluna 4: Ação de Topo */}
           <div className="flex flex-col gap-3">
-            <p className="text-[12px] leading-[1.7] uppercase tracking-widest text-muted-foreground/60">Ações</p>
+            <p className="text-[12px] leading-[1.7] uppercase tracking-widest text-muted-foreground">Ações</p>
             <motion.button
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               aria-label="Voltar ao topo da página"
-              className="group flex items-center gap-2 text-[12px] leading-[1.7] uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors w-fit"
+              className="group flex items-center gap-2 text-[12px] leading-[1.7] uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors w-fit focus-ring rounded-sm"
               whileHover={{ y: -2 }}
             >
               <span>Voltar ao topo</span>

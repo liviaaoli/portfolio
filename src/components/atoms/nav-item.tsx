@@ -15,7 +15,7 @@ export default function NavItem({ to, label, isActive = false, onClick, children
       to={to}
       onClick={onClick}
       aria-current={isActive ? 'page' : undefined}
-      className={`relative text-[14px] leading-[1.7] tracking-normal font-normal transition-colors duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400 ${
+      className={`relative text-[14px] leading-[1.7] tracking-normal font-normal transition-colors duration-500 focus-ring rounded-sm ${
         isActive ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'
       }`}
     >
