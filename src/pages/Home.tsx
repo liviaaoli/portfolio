@@ -33,17 +33,15 @@ export default function Home() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="flex flex-col gap-6 w-full max-w-[800px] items-center"
         >
-          {/* H1: Tipografia via clamp e leading-tight conforme guidelines */}
+          {/* MANTIDO: Fontes e estilos originais das guidelines */}
           <h1 className="text-[clamp(2rem,4vw,3rem)] leading-tight flex flex-col items-center">
             <span className="block">Oi, eu sou a Lívia!</span>
-            {/* whitespace-nowrap impede a viúva em "portfólio ;)" */}
             <span className="block whitespace-nowrap">
               Bem-vindo(a) ao meu portfólio ;)
             </span>
           </h1>
 
-          {/* Body: text-[1rem] e leading-[1.7] conforme guidelines */}
-          <p className="text-[1rem] leading-[1.7] text-muted-foreground mx-auto max-w-[600px] w-full">
+          <p className="text-[1rem] leading-[1.7] text-muted-foreground mx-auto max-w-[600px] w-full text-center">
             Sou Product Designer Jr. na Bwtech, em Belo Horizonte, onde crio soluções para ajudar empresas de telecom a otimizar suas redes
           </p>
         </motion.div>
@@ -55,7 +53,6 @@ export default function Home() {
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 1, ease: "easeOut" }}
         >
-          {/* Legenda: text-[12px] conforme guidelines */}
           <p className="text-[12px] leading-[1.7] text-muted-foreground font-sans">
             Conheça o meu trabalho
           </p>
@@ -72,7 +69,6 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Divisor Visual */}
       <div className="w-full border-t border-border mb-12 md:mb-20" />
 
       {/* Seção de Projetos */}
