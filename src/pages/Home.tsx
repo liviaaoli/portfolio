@@ -33,40 +33,41 @@ export default function Home() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="flex flex-col gap-6 w-full max-w-[800px] items-center"
         >
-          <h1 className="text-[clamp(2rem,4vw,3rem)] leading-tight flex flex-col items-center">
-            <span className="block">Oi, eu sou a Lívia!</span>
-            {/* Removido whitespace-nowrap e text-balance para quebrar apenas no limite da margem */}
-            <span className="block">
-              Bem-vindo(a) ao meu portfólio ;)
-            </span>
+          <h1 className="text-[clamp(2rem,4vw,3rem)] leading-tight flex flex-col items-center hyphens-none">
+            <span className="block">Boas-vindas ao</span>
+            <span className="block">meu portfólio ;)</span>
           </h1>
 
-          <p className="text-[1rem] leading-[1.7] text-muted-foreground mx-auto max-w-[600px] w-full text-center">
-            Sou Product Designer Jr. na Bwtech, em Belo Horizonte, onde crio soluções para ajudar empresas de telecom a otimizar suas redes
+          <p className="text-[1rem] leading-[1.7] text-muted-foreground mx-auto max-w-[700px] w-full text-center flex flex-col items-center">
+            <span className="block">Sou Product Designer em Belo Horizonte, focada em</span>
+            <span className="block">construir produtos digitais intuitivos e estratégicos</span>
           </p>
         </motion.div>
 
-        {/* Scroll Indicator */}
-        <motion.div
-          className="flex flex-col items-center gap-2"
+        {/* Scroll Indicator: Clicável, ícone 14px e feedback de scale */}
+        <motion.a
+          href="#projetos"
+          className="flex flex-col items-center gap-2 no-underline hover:opacity-60 transition-all duration-500 cursor-pointer"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 1, ease: "easeOut" }}
+          whileHover={{ scale: 1.02 }} // Feedback consistente com Buttons
+          whileTap={{ scale: 0.98 }}
+          transition={{ delay: 1, duration: 0.8, ease: "easeOut" }}
         >
-          <p className="text-[12px] leading-[1.7] text-muted-foreground font-sans">
-            Conheça o meu trabalho
+          <p className="text-[14px] leading-[1.7] text-muted-foreground font-sans">
+            Conheça os meus projetos
           </p>
           <motion.span
-            animate={{ y: [0, 6, 0] }}
-            transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+            animate={{ y: [0, 4, 0] }}
+            transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }} // Animação mais devagar
           >
             <ArrowDownIcon 
-              size={24} 
+              size={14} // Tamanho conforme Guidelines para links
               weight="bold" 
               aria-hidden="true" 
             />
           </motion.span>
-        </motion.div>
+        </motion.a>
       </section>
 
       <div className="w-full border-t border-border mb-12 md:mb-20" />
