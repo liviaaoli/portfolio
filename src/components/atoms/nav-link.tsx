@@ -18,7 +18,7 @@ export default function NavLink({ to, label }: NavLinkProps) {
         className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
         aria-hidden="true"
       >
-        <ArrowRightIcon size={20} weight="bold" />
+        <ArrowRightIcon size={14} weight="bold" />
       </span>
     </Link>
   );

@@ -21,7 +21,7 @@ export default function SocialLink({ href, label, isExternal = true }: SocialLin
         className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
         aria-hidden="true"
       >
-        <ArrowSquareOutIcon size={20} weight="bold" />
+        <ArrowSquareOutIcon size={14} weight="bold" />
       </span>
     </a>
   );

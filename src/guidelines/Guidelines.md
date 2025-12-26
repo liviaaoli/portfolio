@@ -24,7 +24,8 @@
 
 ## Spacing (System of 4px)
 * **Navbar:** Altura fixa de **64px** (`h-16`).
-* **Gaps:** 12px (`gap-3`) para itens internos; 64px a 80px (`gap-16/20`) para seções.
+* **Footer Compacto (Exceção):** Utiliza margem superior reduzida (`mt-10`) e preenchimento vertical de `py-8` a `py-10`. Gaps internos seguem 16px a 32px (`gap-4/8`).
+* **Gaps Gerais:** 12px (`gap-3`) para itens internos; 64px a 80px (`gap-16/20`) para seções.
 
 ## Components
 
@@ -39,12 +40,14 @@
 
 ### 3. Icons (Phosphor Icons)
 * **Nomenclatura:** Sufixo `Icon` obrigatório.
-* **Weight:** Sempre `weight=\"bold\"`.
-* **Size:** 20px para Navbar, 24px para Stats/Footer.
-* **TS Fix:** Ícones decorativos com `aria-hidden=\"true\"`. Classes de animação sempre no `<span>` pai.
+* **Weight:** Sempre `weight="bold"`.
+* **Size:** * **14px** para `nav-link` e `social-link`.
+    * **20px** para ícones gerais da Navbar e Footer Compacto (ex: ícone de topo).
+    * **24px** para seções de `Stats` e Footer padrão.
+* **TS Fix:** Ícones decorativos com `aria-hidden="true"`. Classes de animação sempre no `<span>` pai.
 
 ### 4. Accessibility (a11y)
-* **Interactive:** Links externos com `aria-label` descritivo (ex: \"LinkedIn (abre em nova aba)\").
+* **Interactive:** Links externos com `aria-label` descritivo (ex: "LinkedIn (abre em nova aba)").
 * **Focus:** Estados de foco visíveis para navegação via teclado.
 * **Semantics:** `button` para ações, `Link/a` para navegação.
 
@@ -58,4 +61,9 @@
 * **Espaçamento:** `px-3` `py-1.5` (12px x 6px). `sideOffset: 0` por padrão.
 * **Acessibilidade:** `role="tooltip"`, `aria-live="polite"`. Foco visível para o trigger conforme padrão global.
 * **Animações:** Entrada/saída com `animate-in fade-in-0 zoom-in-95` e variantes direcionais (`slide-in-from-...`). Z-index `z-50` e `rounded-md`.
-* **Boas práticas:** Conteúdo curto e objetivo. Evitar links dentro do tooltip; usar para contexto complementar.
+
+### 7. Footer Compacto
+* **Proposta:** Versão minimalista focada em utilidade e navegação rápida, omitindo obrigatoriamente descrições biográficas.
+* **Grid:** Utiliza obrigatoriamente `grid-cols-4` no desktop sem uso de `col-span`, garantindo que as quatro colunas ocupem exatamente 25% da largura do contentor cada.
+* **Alinhamento:** Todos os elementos dentro das colunas devem manter alinhamento à esquerda (`text-left`) para preservar a grelha vertical.
+* **Conteúdo:** Limitado a Identidade/Copyright, Navegação, Contato e Ação de Topo.
