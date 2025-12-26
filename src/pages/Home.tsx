@@ -8,7 +8,7 @@ export default function Home() {
     {
       title: '[Yrden] De 60 minutos de espera a um onboarding produtivo',
       description: 'Um case sobre como transformei uma limitação técnica em uma jornada de boas-vindas de valor',
-      link: '/projeto/yrden',
+      link: '#',
       imageUrl: 'https://images.unsplash.com/photo-1618761714954-0b8cd0026356?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
       imageAlt: 'Yrden Case - Interface de onboarding',
       reversed: false,
@@ -16,9 +16,25 @@ export default function Home() {
     {
       title: 'Axiom - Implementando múltiplas visualizações',
       description: 'Como redesenhei a interface de análise de dados permitindo que usuários alternem entre diferentes visões',
-      link: 'https://www.figma.com/design/1oBmsrGt3Bp95wCtUwVcaD',
+      link: '#',
       imageUrl: 'https://images.unsplash.com/photo-1759661966728-4a02e3c6ed91?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
       imageAlt: 'Axiom Project - Dashboard de análise de dados',
+      reversed: true,
+    },
+    {
+      title: 'Nexus - Sistema de design escalável',
+      description: 'Desenvolvimento de um design system completo para produtos B2B com foco em consistência e eficiência',
+      link: '#',
+      imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+      imageAlt: 'Nexus Design System - Componentes e tokens',
+      reversed: false,
+    },
+    {
+      title: 'Pulse - Dashboard de métricas em tempo real',
+      description: 'Interface intuitiva para visualização de dados complexos com foco na experiência do usuário analista',
+      link: '#',
+      imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+      imageAlt: 'Pulse Dashboard - Interface de métricas',
       reversed: true,
     },
   ];
@@ -45,29 +61,32 @@ export default function Home() {
         </motion.div>
 
         {/* Scroll Indicator: Clicável, ícone 14px e feedback de scale */}
-        <motion.a
-          href="#projetos"
-          className="flex flex-col items-center gap-2 no-underline hover:opacity-60 transition-all duration-500 cursor-pointer"
+        <motion.button
+          onClick={() => {
+            const projectsSection = document.getElementById('projetos');
+            if (projectsSection) {
+              const projectsTitle = projectsSection.querySelector('h2');
+              if (projectsTitle) {
+                projectsTitle.scrollIntoView({ behavior: 'smooth' });
+              }
+            }
+          }}
+          className="group flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-colors cursor-pointer focus-ring rounded-sm"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          whileHover={{ scale: 1.02 }} // Feedback consistente com Buttons
-          whileTap={{ scale: 0.98 }}
+          whileHover={{ y: -2 }}
           transition={{ delay: 1, duration: 0.8, ease: "easeOut" }}
         >
-          <p className="text-[14px] leading-[1.7] text-muted-foreground font-sans">
+          <p className="text-[14px] leading-[1.7] font-sans">
             Conheça os meus projetos
           </p>
-          <motion.span
-            animate={{ y: [0, 4, 0] }}
-            transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }} // Animação mais devagar
-          >
+          <span className="group-hover:animate-bounce" aria-hidden="true">
             <ArrowDownIcon 
-              size={14} // Tamanho conforme Guidelines para links
+              size={16}
               weight="bold" 
-              aria-hidden="true" 
             />
-          </motion.span>
-        </motion.a>
+          </span>
+        </motion.button>
       </section>
 
       <div className="w-full border-t border-border mb-12 md:mb-20" />

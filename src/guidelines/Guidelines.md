@@ -98,3 +98,8 @@ Verificações com a paleta atual:
   - Foco visível consistente com `.focus-ring`
   - Estados hover que não comprometem contraste
 - O arquivo foi atualizado para refletir os tokens e as regras de acessibilidade em vigor no código.
+
+## Ícones - Padrão de Cores
+- Todos os ícones da interface devem usar `text-foreground` para manter consistência
+- Ícones em navbar, páginas e componentes: sempre `text-foreground` (preto no modo claro)
+- Evitar `text-muted-foreground` em ícones principais para garantir uniformidade visual
