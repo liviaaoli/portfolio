@@ -21,13 +21,11 @@ const Layout = ({ children }: LayoutProps) => (
 const App = () => {
   return (
     <Router>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/sobre-mim" element={<About />} />
-          <Route path="/projects/yrden" element={<Yrden />} />
-        </Routes>
-      </Layout>
+      <Routes>
+        <Route path="/" element={<Layout><Home /></Layout>} />
+        <Route path="/sobre-mim" element={<Layout><About /></Layout>} />
+        <Route path="/projects/yrden" element={<Layout><Yrden /></Layout>} />
+      </Routes>
     </Router>
   );
 };
