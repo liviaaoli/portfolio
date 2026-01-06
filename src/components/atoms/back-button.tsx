@@ -10,8 +10,7 @@ interface BackButtonProps {
 }
 
 export default function BackButton({ to = "/", label = "Voltar", fromProject }: BackButtonProps) {
-  const safeTo = to || "/";
-  const finalTo = fromProject ? `${safeTo}?from=${encodeURIComponent(fromProject)}` : safeTo;
+  const finalTo = fromProject ? `${to}?from=${encodeURIComponent(fromProject)}` : to;
 
   return (
     <Tooltip content={label}>

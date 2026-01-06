@@ -82,7 +82,7 @@ Verificações com a paleta atual:
 
 ## Microinterações
 - Transições moderadas, preferir opacidade/escala. Evitar grandes deslocamentos
-- Imagens/Thumbs (`ProjectGallery`): hover `scale: 1.02`
+- Imagens/Thumbs: hover `scale: 1.01`
 
 ## Boas práticas adicionais
 - Evitar reduzir opacidade de texto/ícones a ponto de violar contraste; como regra, preferir `hover:opacity-80` quando necessário
@@ -103,11 +103,9 @@ Verificações com a paleta atual:
 - Espaçamento padrão: `mb-1/mt-1` (4px) entre tooltip e elemento
 - Implementação no componente `tooltip-simple.tsx`
 
----
+## UX Writing & Microtipografia (Padrão Definido)
 
-# UX Writing & Microtipografia (Padrão Definido)
-
-## 1. Capitalização e Formatação
+### 1. Capitalização e Formatação
 - **Padrão:** Sentence case (Apenas a primeira letra maiúscula).
   - *Correto:* "Sobre mim", "Entrar em contato", "Ver projetos".
   - *Incorreto:* "Sobre Mim", "Entrar em Contato", "VER PROJETOS".
@@ -115,27 +113,27 @@ Verificações com a paleta atual:
 - **Pontuação em Títulos/Botões:** Nunca usar ponto final.
 - **Pontuação em Listas:** Sem ponto e vírgula (;) ou ponto final (.) ao fim de itens que não são frases completas.
 
-## 2. Botões e CTAs (Call to Action)
+### 2. Botões e CTAs (Call to Action)
 - **Estrutura:** Verbo no Imperativo + Objeto (máximo 3 palavras).
 - **Padrão:** Ser direto e conciso.
   - *Definição:* Usar **"Ver projetos"** em vez de "Conheça os meus projetos".
   - *Definição:* Usar **"Voltar"** ou **"Voltar ao início"** em vez de navegações longas.
 
-## 3. Microtipografia (Regras de Ouro)
+### 3. Microtipografia (Regras de Ouro)
 - **Aspas:**
-  - **Interface (Textos):** Obrigatório uso de aspas curvas (“ ”). *Ex: O conceito de “menos é mais” foi aplicado.*
+  - **Interface (Textos):** Obrigatório uso de aspas curvas (" "). *Ex: O conceito de "menos é mais" foi aplicado.*
   - **Código:** Aspas retas (' ' ou " ").
 - **Hífens e Travessões:**
   - **Hífen (-):** Apenas para palavras compostas ou intervalos numéricos simples (ex: "boas-vindas", "2023-2024").
-  - **Travessão (—):** Para separar orações ou destacar o subtítulo de um projeto. *Ex: "[Yrden] — De 60 minutos de espera..."*
+  - **Travessão (—):** Para separar orações ou destacar o subtítulo de um projeto. *Ex: "Yrden — De 60 minutos de espera..."*
 
-## 4. Controle de Viúvas e Órfãs (Zero Tolerância)
+### 4. Controle de Viúvas e Órfãs (Zero Tolerância)
 - **Regra:** Nenhuma palavra deve ficar sozinha na última linha de um bloco de texto ou título.
 - **Títulos (H1, H2, H3):** Obrigatório uso da classe `text-wrap: balance` (ou `text-balance` no Tailwind).
 - **Textos Corridos e Labels:** Usar `&nbsp;` (Non-breaking space) entre as duas últimas palavras ou para "colar" preposições curtas (de, da, em, com) à palavra seguinte.
   - *Código:* `Design&nbsp;System` (Nunca deixe "System" cair sozinho).
 
-## 5. Voz e Tom
+### 5. Voz e Tom
 - **Pessoa:** 1ª pessoa do singular (Eu).
 - **Voz:** Ativa. (Você fez a ação).
   - *Definição:* "Desenvolvi a interface" (Nunca "A interface foi desenvolvida").
@@ -144,54 +142,7 @@ Verificações com a paleta atual:
   - Usar **"Product Designer"** (Inglês, Capitalizado).
   - Usar **"Front-end"** (Hífen, minúscula após hífen).
 
-## 6. Comportamento de Texto e Leitura
-Para garantir a integridade visual dos blocos de texto e evitar "buracos" (espaços em branco irregulares) em colunas responsivas:
-
-- **Hifenização Automática:** Deve estar ativa em todo o corpo de texto e listas.
-  - *Objetivo:* Permitir a quebra de palavras longas em finais de linha com um hífen, otimizando o preenchimento do espaço horizontal.
-- **Harmonia de Parágrafo:** O texto deve utilizar algoritmos de renderização que evitem "viúvas" e equilibrem o comprimento das linhas do parágrafo (text-pretty).
-  - *Objetivo:* Criar manchas de texto uniformes e confortáveis de ler.
-- **Balanceamento de Títulos:** Títulos e chamadas curtas devem ter suas linhas equilibradas visualmente para evitar o formato de "escada".
-
 ## Ícones - Padrão de Cores
 - Todos os ícones da interface devem usar `text-foreground` para manter consistência
 - Ícones em navbar, páginas e componentes: sempre `text-foreground` (preto no modo claro)
 - Evitar `text-muted-foreground` em ícones principais para garantir uniformidade visual
-
----
-
-# Grid & Layout System
-
-Sistema de colunas responsivo mantendo o container máximo de 1040px.
-
-## Lógica de Margens (Container)
-- **Mobile (< 768px):** Margem fixa de `24px` (`px-6`).
-- **Desktop (≥ 768px):** Margem fixa de `40px` (`px-10`).
-- **Max-Width:** `1040px` centralizado (`mx-auto`).
-
-## Lógica de Colunas (Grid)
-Utilizar sistema de Grid com espaçamento (`gap`) de **24px** (`gap-6`) para consistência com o arredondamento (`--radius: 24px`).
-- **Mobile:** 4 Colunas
-- **Tablet:** 8 Colunas
-- **Desktop:** 12 Colunas
-
-## Regras de Uso (Prevenção de Linhas Longas)
-> **Regra de Ouro:** Texto de leitura (parágrafos longos) **NUNCA** deve ocupar as 12 colunas no Desktop. Use no máximo **8 colunas** para garantir legibilidade (~70 caracteres/linha). Deixe as 12 colunas apenas para imagens grandes, vídeos ou headers.
-
-### Receitas de Layout Padrão:
-
-1.  **Layout de Leitura (Centralizado):**
-    - *Uso:* Introduções, Sobre, Textos longos.
-    - *Comportamento:* O bloco de texto ignora as 2 primeiras colunas e ocupa as 8 centrais.
-
-2.  **Layout Assimétrico (Case Study):**
-    - *Uso:* Detalhes de projeto com barra lateral de metadados.
-    - *Comportamento:* Sidebar ocupa 4 colunas; Conteúdo principal ocupa 8 colunas.
-
-3.  **Galeria de Imagens (ProjectGallery):**
-    - *Divisão Simétrica:* Padrão de 2 colunas no Desktop (`md:grid-cols-2`).
-    - *Visual:* Imagens com `rounded-sm` e efeito de hover `scale-102`.
-
-4.  **Grid de Métricas (MetricsGrid):**
-    - *Divisão em Terços:* Padrão de 3 colunas no Desktop (`md:grid-cols-3`).
-    - *Responsividade:* Em mobile, empilha em 1 coluna.

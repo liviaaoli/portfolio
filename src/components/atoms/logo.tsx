@@ -2,6 +2,11 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 export default function Logo() {
+  const motionProps = {
+    whileHover: { scale: 1.01 },
+    transition: { duration: 0.4, ease: "easeOut" }
+  };
+
   return (
     <Link 
       to="/" 
@@ -10,8 +15,7 @@ export default function Logo() {
     >
       <motion.span
         className="text-base leading-[1.7] font-bold tracking-tight text-foreground hover:opacity-60 transition-opacity duration-500"
-        whileHover={{ scale: 1.01 }}
-        transition={{ duration: 0.4, ease: "easeOut" }}
+        {...motionProps}
       >
         Lívia Miranda
       </motion.span>

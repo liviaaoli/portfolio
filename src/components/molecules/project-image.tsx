@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 
 interface ProjectImageProps {
@@ -17,9 +16,12 @@ export default function ProjectImage({ src, alt, delay = 0 }: ProjectImageProps)
     >
       <div className="w-full h-[300px] md:h-[500px] rounded-sm overflow-hidden">
         <img
-          src={src}
+          src={src || '/placeholder.jpg'}
           alt={alt}
           className="w-full h-full object-cover"
+          onError={(e) => {
+            e.currentTarget.src = '/placeholder.jpg';
+          }}
         />
       </div>
     </motion.section>

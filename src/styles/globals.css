@@ -29,12 +29,12 @@
   }
 
   /* Tipografia escalável e acessível (Guidelines) */
-  h1 { @apply text-[clamp(2rem,4vw,3rem)] font-bold leading-[1.1] -tracking-[0.03em] max-w-[20ch]; }
-  h2 { @apply text-[clamp(1.5rem,3vw,2rem)] font-bold leading-[1.2] -tracking-[0.02em]; }
-  h3 { @apply text-[clamp(1.125rem,2vw,1.5rem)] font-bold leading-[1.4] max-w-[35ch]; }
+  h1 { @apply text-[clamp(2rem,4vw,3rem)] font-bold leading-[1.1] -tracking-[0.03em] text-balance hyphens-none; }
+  h2 { @apply text-[clamp(1.5rem,3vw,2rem)] font-bold leading-[1.2] -tracking-[0.02em] text-balance hyphens-none; }
+  h3 { @apply text-[clamp(1.125rem,2vw,1.5rem)] font-bold leading-[1.4] text-balance hyphens-none; }
   
   /* Garantindo legibilidade do corpo do texto */
-  p, li { @apply text-[1rem] leading-[1.7] max-w-[70ch]; }
+  p, li { @apply text-[1rem] leading-[1.7] hyphens-auto text-pretty; }
   
   body {
     @apply bg-background text-foreground font-sans antialiased selection:bg-foreground selection:text-background;

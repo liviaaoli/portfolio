@@ -1,9 +1,10 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 
 interface TableOfContentsProps {
   delay?: number;
 }
+
+const linkClassName = "text-[1rem] leading-[1.7] text-muted-foreground hover:text-foreground transition-colors duration-300 focus-ring rounded-sm";
 
 export default function TableOfContents({ delay = 0 }: TableOfContentsProps) {
   return (
@@ -18,46 +19,25 @@ export default function TableOfContents({ delay = 0 }: TableOfContentsProps) {
           <p className="text-[12px] leading-[1.7] uppercase tracking-widest text-muted-foreground mb-2">
             Neste projeto
           </p>
-          <a
-            href="#visao-geral"
-            className="text-[1rem] leading-[1.7] text-muted-foreground hover:text-foreground transition-colors duration-300 focus-ring rounded-sm"
-          >
+          <a href="#visao-geral" className={linkClassName}>
             Visão Geral
           </a>
-          <a
-            href="#desafio"
-            className="text-[1rem] leading-[1.7] text-muted-foreground hover:text-foreground transition-colors duration-300 focus-ring rounded-sm"
-          >
+          <a href="#desafio" className={linkClassName}>
             O Desafio
           </a>
-          <a
-            href="#solucao"
-            className="text-[1rem] leading-[1.7] text-muted-foreground hover:text-foreground transition-colors duration-300 focus-ring rounded-sm"
-          >
+          <a href="#solucao" className={linkClassName}>
             A Solução
           </a>
-          <a
-            href="#tecnologias"
-            className="text-[1rem] leading-[1.7] text-muted-foreground hover:text-foreground transition-colors duration-300 focus-ring rounded-sm"
-          >
+          <a href="#tecnologias" className={linkClassName}>
             Tecnologias
           </a>
-          <a
-            href="#galeria"
-            className="text-[1rem] leading-[1.7] text-muted-foreground hover:text-foreground transition-colors duration-300 focus-ring rounded-sm"
-          >
+          <a href="#galeria" className={linkClassName}>
             Galeria
           </a>
-          <a
-            href="#depoimento"
-            className="text-[1rem] leading-[1.7] text-muted-foreground hover:text-foreground transition-colors duration-300 focus-ring rounded-sm"
-          >
+          <a href="#depoimento" className={linkClassName}>
             Depoimento
           </a>
-          <a
-            href="#resultados"
-            className="text-[1rem] leading-[1.7] text-muted-foreground hover:text-foreground transition-colors duration-300 focus-ring rounded-sm"
-          >
+          <a href="#resultados" className={linkClassName}>
             Resultados
           </a>
         </div>

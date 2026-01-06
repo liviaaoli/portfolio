@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { CalendarIcon, UserIcon, WrenchIcon } from '@phosphor-icons/react';
 import Tooltip from '../atoms/tooltip-simple';
@@ -22,10 +21,11 @@ export default function ProjectHero({ title, subtitle, date, role, tools }: Proj
     >
       <div className="flex flex-col gap-6 md:gap-8">
         {/* Title */}
-        <h1 dangerouslySetInnerHTML={{ __html: title.replace(/—/g, '—&nbsp;').replace(/De /g, 'De&nbsp;').replace(/a /g, 'a&nbsp;') }} />
+        <h1>{title}</h1>
         
         {/* Subtitle */}
-        <p className="text-[1rem] leading-[1.7] text-muted-foreground max-w-[70ch] whitespace-normal" dangerouslySetInnerHTML={{ __html: subtitle.replace(/de valor/g, 'de&nbsp;valor') }}>
+        <p className="text-[1rem] leading-[1.7] text-muted-foreground max-w-[70ch] whitespace-normal">
+          {subtitle}
         </p>
 
         {/* Meta Info */}

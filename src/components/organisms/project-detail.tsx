@@ -1,4 +1,3 @@
-import React from 'react';
 import ProjectLayout from '../templates/project-layout';
 import ProjectHero from '../organisms/project-hero';
 import ProjectImage from '../molecules/project-image';
@@ -90,6 +89,20 @@ export default function ProjectDetail({
   projectId
 }: ProjectDetailProps) {
   
+  const containerClassName = "max-w-[1040px] mx-auto px-6 md:px-10 py-8 md:py-12";
+  const gridClassName = "grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12";
+  
+  // Animation delays
+  const delays = {
+    overview: 0.3,
+    challenge: 0.4,
+    solution: 0.5,
+    tech: 0.6,
+    gallery: 0.7,
+    testimonial: 0.9,
+    metrics: 1.0
+  };
+  
   // Renderiza conteúdo customizado ou padrão
   const renderContent = () => {
     if (customContent) return customContent;
@@ -109,7 +122,7 @@ export default function ProjectDetail({
           id="visao-geral"
           title="Visão Geral"
           content={description}
-          delay={0.3}
+          delay={delays.overview}
         />
         
         {challenge && (
@@ -117,7 +130,7 @@ export default function ProjectDetail({
             id="desafio"
             title="O Desafio"
             content={challenge}
-            delay={0.4}
+            delay={delays.challenge}
           />
         )}
         
@@ -126,21 +139,21 @@ export default function ProjectDetail({
             id="solucao"
             title="A Solução"
             content={solution}
-            delay={0.5}
+            delay={delays.solution}
           />
         )}
         
         {technologies && (
           <TechStack
             technologies={technologies}
-            delay={0.6}
+            delay={delays.tech}
           />
         )}
         
         {galleryImages && (
           <ProjectGallery
             images={galleryImages}
-            delay={0.7}
+            delay={delays.gallery}
           />
         )}
         
@@ -149,7 +162,7 @@ export default function ProjectDetail({
             quote={testimonial.quote}
             author={testimonial.author}
             role={testimonial.role}
-            delay={0.9}
+            delay={delays.testimonial}
           />
         )}
         
@@ -157,7 +170,7 @@ export default function ProjectDetail({
           <MetricsGrid
             metrics={metrics}
             results={results}
-            delay={1.0}
+            delay={delays.metrics}
           />
         )}
       </div>
@@ -189,8 +202,8 @@ export default function ProjectDetail({
 
       {/* Conteúdo principal */}
       <FadeInView delay={0.1}>
-        <div className="max-w-[1040px] mx-auto px-6 md:px-10 py-8 md:py-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+        <div className={containerClassName}>
+          <div className={gridClassName}>
             {/* Table of Contents opcional */}
             {!hideTableOfContents && <TableOfContents delay={0.3} />}
             

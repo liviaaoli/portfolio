@@ -22,9 +22,26 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Layout><Home /></Layout>} />
-        <Route path="/sobre-mim" element={<Layout><About /></Layout>} />
-        <Route path="/projects/yrden" element={<Layout><Yrden /></Layout>} />
+        <Route 
+          path="/" 
+          element={
+            <Layout>
+              <Home />
+            </Layout>
+          } 
+        />
+        <Route 
+          path="/sobre-mim" 
+          element={
+            <Layout>
+              <About />
+            </Layout>
+          } 
+        />
+        <Route 
+          path="/projects/yrden" 
+          element={<Yrden />} 
+        />
       </Routes>
     </Router>
   );

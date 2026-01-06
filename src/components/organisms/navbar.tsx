@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   ListIcon,
@@ -20,6 +20,15 @@ export default function Navbar() {
     { path: '/', label: 'Início' },
     { path: '/sobre-mim', label: 'Sobre mim' },
   ];
+
+  const linkClassName = "text-foreground hover:opacity-60 transition-opacity duration-500 focus-ring rounded-sm";
+  const mobileLinkClassName = "p-2 rounded-sm text-foreground hover:opacity-60 transition-opacity duration-500 focus-ring";
+  
+  const socialLinks = {
+    email: "mailto:livia146miranda@gmail.com",
+    linkedin: "https://www.linkedin.com/in/liviamirandadeoliveira/",
+    cv: "https://drive.google.com/file/d/10QUVd-f9ORjKOVvJE-wWdbR3pSSobbyc/view?usp=drive_link"
+  };
 
   return (
     <nav className="sticky top-0 z-50 bg-background border-b border-border">
@@ -46,9 +55,9 @@ export default function Navbar() {
               {/* Email */}
               <Tooltip content="Enviar email">
                 <a 
-                  href="mailto:livia146miranda@gmail.com" 
+                  href={socialLinks.email}
                   aria-label='Enviar email para Lívia' 
-                  className="text-foreground hover:opacity-60 transition-opacity duration-500 focus-ring rounded-sm"
+                  className={linkClassName}
                 >
                   <EnvelopeSimpleIcon size={20} weight="bold" aria-hidden="true" />
                 </a>
@@ -57,11 +66,11 @@ export default function Navbar() {
               {/* LinkedIn */}
               <Tooltip content="LinkedIn">
                 <a 
-                  href="https://www.linkedin.com/in/liviamirandadeoliveira/" 
+                  href={socialLinks.linkedin}
                   aria-label='LinkedIn (abre em nova aba)' 
                   target="_blank" 
                   rel="noreferrer" 
-                  className="text-foreground hover:opacity-60 transition-opacity duration-500 focus-ring rounded-sm"
+                  className={linkClassName}
                 >
                   <LinkedinLogoIcon size={20} weight="bold" aria-hidden="true" />
                 </a>
@@ -70,11 +79,11 @@ export default function Navbar() {
               {/* Currículo */}
               <Tooltip content="CV">
                 <a 
-                  href="https://drive.google.com/file/d/10QUVd-f9ORjKOVvJE-wWdbR3pSSobbyc/view?usp=drive_link" 
+                  href={socialLinks.cv}
                   aria-label='Currículo de Lívia (abre em nova aba)' 
                   target="_blank" 
                   rel="noreferrer" 
-                  className="text-foreground hover:opacity-60 transition-opacity duration-500 focus-ring rounded-sm"
+                  className={linkClassName}
                 >
                   <ReadCvLogoIcon size={20} weight="bold" aria-hidden="true" />
                 </a>
@@ -115,27 +124,27 @@ export default function Navbar() {
                 {/* Ícones sociais abaixo dos nav-links no mobile */}
                 <div className="flex items-center justify-center gap-6 pt-2">
                   <a 
-                    href="mailto:livia146miranda@gmail.com" 
+                    href={socialLinks.email}
                     aria-label='Enviar email para Lívia' 
-                    className="p-2 rounded-sm text-foreground hover:opacity-60 transition-opacity duration-500 focus-ring"
+                    className={mobileLinkClassName}
                   >
                     <EnvelopeSimpleIcon size={24} weight="bold" aria-hidden="true" />
                   </a>
                   <a 
-                    href="https://www.linkedin.com/in/liviamirandadeoliveira/" 
+                    href={socialLinks.linkedin}
                     aria-label='LinkedIn (abre em nova aba)' 
                     target="_blank" 
                     rel="noreferrer" 
-                    className="p-2 rounded-sm text-foreground hover:opacity-60 transition-opacity duration-500 focus-ring"
+                    className={mobileLinkClassName}
                   >
                     <LinkedinLogoIcon size={24} weight="bold" aria-hidden="true" />
                   </a>
                   <a 
-                    href="https://drive.google.com/file/d/10QUVd-f9ORjKOVvJE-wWdbR3pSSobbyc/view?usp=drive_link" 
+                    href={socialLinks.cv}
                     aria-label='Currículo de Lívia (abre em nova aba)' 
                     target="_blank" 
                     rel="noreferrer" 
-                    className="p-2 rounded-sm text-foreground hover:opacity-60 transition-opacity duration-500 focus-ring"
+                    className={mobileLinkClassName}
                   >
                     <ReadCvLogoIcon size={24} weight="bold" aria-hidden="true" />
                   </a>

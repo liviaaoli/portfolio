@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 
 interface TestimonialProps {
@@ -9,6 +8,10 @@ interface TestimonialProps {
 }
 
 export default function Testimonial({ quote, author, role, delay = 0 }: TestimonialProps) {
+  if (!quote || !author || !role) {
+    return null;
+  }
+  
   return (
     <motion.div
       id="depoimento"

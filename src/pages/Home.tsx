@@ -70,7 +70,7 @@ export default function Home() {
     {
       id: 'pulse',
       title: 'Pulse — Criei dashboard de métricas em tempo real',
-      description: 'Projetei interface intuitiva para visualização de dados complexos com foco na experiência do usuário analista',
+      description: `Projetei interface intuitiva para visualização de dados complexos com foco na experiência do usuário analista`,
       link: '#',
       imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
       imageAlt: 'Pulse Dashboard - Interface de métricas',
@@ -79,7 +79,7 @@ export default function Home() {
   ];
 
   return (
-    <main className="flex-1 w-full max-w-[1040px] mx-auto px-6 overflow-x-hidden">
+    <main className="max-w-[1040px] mx-auto px-6 md:px-10 w-full">
       {/* Seção Hero */}
       <section className="min-h-[85vh] w-full flex flex-col justify-center items-center text-center gap-10 md:gap-12 py-12 md:py-20">
         <motion.div
@@ -88,7 +88,7 @@ export default function Home() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="flex flex-col gap-6 w-full max-w-[800px] items-center"
         >
-          <h1 className="text-[clamp(2rem,4vw,3rem)] leading-tight flex flex-col items-center hyphens-none text-balance">
+          <h1 className="leading-tight flex flex-col items-center hyphens-none">
             <span className="block">Boas-vindas ao</span>
             <span className="block">meu portfólio ;)</span>
           </h1>
@@ -128,7 +128,7 @@ export default function Home() {
         <FadeInView>
           <h2
             id="projetos-title"
-            className="text-center text-balance"
+            className="text-center"
           >
             Projetos
           </h2>

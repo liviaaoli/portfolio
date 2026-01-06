@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRightIcon } from '@phosphor-icons/react';
@@ -25,7 +24,14 @@ export default function ProjectCard({ title, description, link, imageUrl, imageA
       whileHover={{ scale: isComingSoon ? 1 : 1.01 }}
       transition={{ duration: 0.4 }}
     >
-      <img src={imageUrl} alt={imageAlt} className="absolute inset-0 w-full h-full object-cover" />
+      <img 
+        src={imageUrl || '/placeholder.jpg'} 
+        alt={imageAlt} 
+        className="absolute inset-0 w-full h-full object-cover"
+        onError={(e) => {
+          e.currentTarget.src = '/placeholder.jpg';
+        }}
+      />
     </motion.div>
   );
 

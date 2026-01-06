@@ -1,10 +1,8 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 
 interface MetricCardProps {
   value: string;
   label: string;
-  icon?: 'trending' | 'users' | 'zap';
   index?: number;
 }
 

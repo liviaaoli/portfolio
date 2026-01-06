@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 
 interface ProjectGalleryProps {
@@ -9,6 +8,8 @@ interface ProjectGalleryProps {
 export default function ProjectGallery({ images, delay = 0 }: ProjectGalleryProps) {
   if (!images || images.length === 0) return null;
 
+  const imageClassName = "w-full h-full object-cover";
+
   return (
     <motion.div
       id="galeria"
@@ -17,24 +18,28 @@ export default function ProjectGallery({ images, delay = 0 }: ProjectGalleryProp
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay, ease: "easeOut" }}
     >
-      <h3 className="text-[clamp(1.125rem,2vw,1.5rem)] font-bold leading-[1.4] max-w-[35ch]">Processo & Resultados Visuais</h3>
+      <h3>Processo & Resultados Visuais</h3>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {images.map((image, index) => (
-          <motion.div
-            key={index}
-            className="w-full h-[300px] rounded-sm overflow-hidden"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: delay + index * 0.1, ease: "easeOut" }}
-            whileHover={{ scale: 1.02 }}
-          >
-            <img
-              src={image}
-              alt={`Project gallery ${index + 1}`}
-              className="w-full h-full object-cover"
-            />
-          </motion.div>
-        ))}
+        {images.map((image, index) => {
+          const safeImageSrc = image && typeof image === 'string' ? image : '/placeholder.jpg';
+          
+          return (
+            <motion.div
+              key={`gallery-${index}-${image}`}
+              className="w-full h-[300px] rounded-sm overflow-hidden"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: delay + index * 0.1, ease: "easeOut" }}
+              whileHover={{ scale: 1.02 }}
+            >
+              <img
+                src={safeImageSrc}
+                alt={`Project gallery ${index + 1}`}
+                className={imageClassName}
+              />
+            </motion.div>
+          );
+        })}
       </div>
     </motion.div>
   );

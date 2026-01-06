@@ -11,11 +11,18 @@ interface ButtonProps {
 
 const Button = forwardRef<HTMLAnchorElement, ButtonProps>(
   ({ href, children, icon: Icon, isExternal }, ref) => {
-    if (!href || !children) {
+    if (!href || typeof href !== 'string' || !children) {
       return null;
     }
 
-    const baseClass = "inline-flex items-center gap-3 border border-border px-5 py-2.5 mt-2 rounded-sm hover:bg-foreground hover:text-background transition-all duration-300 font-sans text-[14px] leading-[1.7] focus-ring";
+    const baseClass = [
+      "inline-flex items-center gap-3",
+      "border border-border px-5 py-2.5 mt-2 rounded-sm",
+      "hover:bg-foreground hover:text-background",
+      "transition-all duration-300",
+      "font-sans text-[14px] leading-[1.7]",
+      "focus-ring"
+    ].join(" ");
 
     const content = (
       <>
@@ -46,7 +53,7 @@ const Button = forwardRef<HTMLAnchorElement, ButtonProps>(
     }
 
     return (
-      <Link to={href} className="no-underline">
+      <Link to={href.startsWith('/') ? href : '/'} className="no-underline">
         <motion.div
           className={baseClass}
           {...motionProps}

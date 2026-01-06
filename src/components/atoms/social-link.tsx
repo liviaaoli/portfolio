@@ -1,4 +1,3 @@
-import React from 'react';
 import { ArrowSquareOutIcon } from '@phosphor-icons/react';
 
 interface SocialLinkProps {
@@ -8,20 +7,33 @@ interface SocialLinkProps {
 }
 
 export default function SocialLink({ href, label, isExternal = true }: SocialLinkProps) {
+  const safeHref = href || '#';
+  const externalLabel = isExternal ? ' (opens in new tab)' : '';
+  const iconProps = { size: 14, weight: "bold" as const };
+  
   return (
     <a
-      href={href}
+      href={safeHref}
       target={isExternal ? "_blank" : "_self"}
       rel={isExternal ? "noreferrer" : undefined}
-      aria-label={`${label}${isExternal ? " (abre em nova aba)" : ""}`}
-      className="text-[14px] leading-[1.7] text-muted-foreground hover:text-foreground hover:underline flex items-center gap-3 group transition-colors w-fit focus-ring rounded-sm"
+      aria-label={`${label}${externalLabel}`}
+      className="
+        text-[14px] leading-[1.7] text-muted-foreground
+        hover:text-foreground hover:underline
+        flex items-center gap-3 group transition-colors
+        w-fit focus-ring rounded-sm
+      "
     >
       {label}
       <span
-        className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
+        className="
+          opacity-0 -translate-x-2
+          group-hover:opacity-100 group-hover:translate-x-0
+          transition-all duration-300
+        "
         aria-hidden="true"
       >
-        <ArrowSquareOutIcon size={14} weight="bold" />
+        <ArrowSquareOutIcon {...iconProps} />
       </span>
     </a>
   );

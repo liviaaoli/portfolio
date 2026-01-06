@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useCallback } from 'react';
 
 interface TooltipProps {
   content: string;
@@ -10,7 +10,7 @@ export default function Tooltip({ content, children }: TooltipProps) {
   const [isTop, setIsTop] = useState(false);
   const triggerRef = useRef<HTMLDivElement>(null);
 
-  const updatePosition = () => {
+  const updatePosition = useCallback(() => {
     if (!triggerRef.current) return;
     
     const rect = triggerRef.current.getBoundingClientRect();
@@ -18,22 +18,28 @@ export default function Tooltip({ content, children }: TooltipProps) {
     const spaceBelow = window.innerHeight - rect.bottom;
     
     setIsTop(spaceAbove > spaceBelow);
-  };
+  }, []);
 
-  useEffect(() => {
-    if (show) updatePosition();
-  }, [show]);
+  const handleMouseEnter = useCallback(() => {
+    updatePosition();
+    setShow(true);
+  }, [updatePosition]);
 
   return (
     <div 
       ref={triggerRef}
       className="relative inline-block"
-      onMouseEnter={() => setShow(true)}
+      onMouseEnter={handleMouseEnter}
       onMouseLeave={() => setShow(false)}
     >
       {children}
       {show && (
-        <div className={`absolute ${isTop ? 'bottom-full mb-1' : 'top-full mt-1'} left-1/2 transform -translate-x-1/2 px-3 py-2 bg-foreground text-background rounded-sm whitespace-nowrap text-[0.875rem] leading-[1.2] font-normal z-50`}>
+        <div className={`
+          absolute ${isTop ? 'bottom-full mb-1' : 'top-full mt-1'} left-1/2 transform -translate-x-1/2
+          px-3 py-2 bg-foreground text-background rounded-sm
+          whitespace-nowrap text-[0.875rem] leading-[1.2] font-normal
+          z-50
+        `}>
           {content}
         </div>
       )}
