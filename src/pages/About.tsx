@@ -18,11 +18,13 @@ export default function About() {
         {/* Profile Image */}
         <div className="col-span-4 md:col-span-8 lg:col-span-12 flex justify-center">
           <FadeInView className="w-full max-w-[200px]">
-            <div className="aspect-square relative rounded-full overflow-hidden border border-border hover:opacity-90 transition-all duration-700">
+            <div className="aspect-square relative rounded-full overflow-hidden border border-border hover:opacity-90 transition-all duration-700 bg-muted">
               <img
                 alt="Foto de Lívia Miranda"
                 className="w-full h-full object-cover"
                 src="/eu.jpg"
+                loading="eager"
+                decoding="async"
               />
             </div>
           </FadeInView>

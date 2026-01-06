@@ -75,6 +75,12 @@ Verificações com a paleta atual:
 - Navbar: altura fixa `h-16`. Itens com `text-muted-foreground` e hover para `text-foreground`. Foco com `.focus-ring`.
 - Footer compacto: `mt-10` e `py-8/10`; colunas em grid responsivo. Labels (Navegação, Contato, Ações) com `text-muted-foreground` sem opacidade para garantir AA. Links com `.focus-ring`.
 
+## Estados Ativos de Navegação
+- **Padrão:** Seções ativas devem usar `text-foreground font-semibold` vs `text-muted-foreground` para inativas
+- **Mobile:** Ícones sempre visíveis (`opacity-100 translate-x-0`)
+- **Desktop:** Ícones com hover effect (`md:opacity-0 md:group-hover:opacity-100`)
+- **Aplicar em:** NavItem (navbar), Table of Contents, e qualquer navegação com estado ativo
+
 ## Componentes (padrões de acessibilidade)
 - Button: `inline-flex`, `border-border`, `hover:bg-foreground hover:text-background`, `.focus-ring` no elemento focável; alvo acessível (altura efetiva ~44px)
 - NavLink / NavItem / SocialLink / Logo: usam `text-muted-foreground` com `hover:text-foreground`, `.focus-ring` e `rounded-sm`

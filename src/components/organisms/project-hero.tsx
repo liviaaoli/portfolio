@@ -31,21 +31,21 @@ export default function ProjectHero({ title, subtitle, date, role, tools }: Proj
         {/* Meta Info */}
         <div className="flex flex-wrap items-center gap-6 text-[0.875rem] leading-[1.7] text-muted-foreground">
           <Tooltip content="Data do projeto">
-            <div className="flex items-center gap-1.5">
+            <div className="flex items-center gap-1.5 cursor-default">
               <CalendarIcon size={14} weight="bold" className="text-foreground" />
               <span>{date}</span>
             </div>
           </Tooltip>
           
           <Tooltip content="Meu papel no projeto">
-            <div className="flex items-center gap-1.5">
+            <div className="flex items-center gap-1.5 cursor-default">
               <UserIcon size={14} weight="bold" className="text-foreground" />
               <span>{role}</span>
             </div>
           </Tooltip>
           
           <Tooltip content="Ferramentas utilizadas">
-            <div className="flex items-center gap-1.5">
+            <div className="flex items-center gap-1.5 cursor-default">
               <WrenchIcon size={14} weight="bold" className="text-foreground" />
               <span>{tools.join(', ')}</span>
             </div>
