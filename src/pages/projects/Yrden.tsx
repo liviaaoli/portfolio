@@ -8,7 +8,9 @@ export default function Yrden() {
 
   return (
     <ProjectDetail
-      title="Yrden — De 60 minutos de espera a um onboarding produtivo"
+      productName="Yrden"
+      productLogo="/logos/yrden-logo.svg"
+      title="De 60 minutos de espera a um onboarding produtivo"
       subtitle="Um case sobre como transformei uma limitação técnica em uma jornada de boas-vindas de valor"
       date="Dezembro 2024"
       role="Product Designer (End-to-end)"

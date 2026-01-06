@@ -25,6 +25,8 @@ interface ProjectDetailProps {
   tools: string[];
   link?: string;
   imageUrl: string;
+  productName?: string;
+  productLogo?: string;
   
   // Conteúdo
   description: string;
@@ -86,7 +88,9 @@ export default function ProjectDetail({
   customContent,
   customSections,
   hideTableOfContents = false,
-  projectId
+  projectId,
+  productName,
+  productLogo
 }: ProjectDetailProps) {
   
   const containerClassName = "max-w-[1040px] mx-auto px-6 md:px-10 py-8 md:py-12";
@@ -178,7 +182,11 @@ export default function ProjectDetail({
   };
 
   return (
-    <ProjectLayout projectId={projectId}>
+    <ProjectLayout 
+      projectId={projectId}
+      title={title}
+      prototypeLink={link}
+    >
       {/* Hero customizável */}
       {customHero || (
         <ProjectHero
@@ -188,6 +196,8 @@ export default function ProjectDetail({
           role={role}
           tools={tools}
           link={link}
+          productName={productName}
+          productLogo={productLogo}
         />
       )}
 

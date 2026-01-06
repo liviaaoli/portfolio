@@ -13,6 +13,7 @@ export default function ProjectImage({ src, alt, delay = 0 }: ProjectImageProps)
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay, ease: "easeOut" }}
+      data-project-image
     >
       <div className="w-full h-[300px] md:h-[500px] rounded-sm overflow-hidden">
         <img

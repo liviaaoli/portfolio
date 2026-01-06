@@ -1,13 +1,17 @@
 import Navbar from '../organisms/navbar';
 import Footer from '../organisms/footer';
 import BackButton from '../atoms/back-button';
+import ScrollToTop from '../atoms/scroll-to-top';
+import ProjectStickyHeader from '../organisms/project-sticky-header';
 
 interface ProjectLayoutProps {
   children: React.ReactNode;
   projectId?: string | null;
+  title?: string;
+  prototypeLink?: string;
 }
 
-export default function ProjectLayout({ children, projectId }: ProjectLayoutProps) {
+export default function ProjectLayout({ children, projectId, title, prototypeLink }: ProjectLayoutProps) {
   if (!children) {
     return null;
   }
@@ -18,6 +22,14 @@ export default function ProjectLayout({ children, projectId }: ProjectLayoutProp
     return (
       <div className="min-h-screen bg-background">
         <Navbar />
+        
+        {/* Sticky Header */}
+        {title && (
+          <ProjectStickyHeader 
+            title={title}
+            prototypeLink={prototypeLink}
+          />
+        )}
 
         {/* Back Button */}
         <div className="max-w-[1040px] mx-auto px-6 md:px-10 pt-8 md:pt-12 pb-4 md:pb-8">
@@ -28,6 +40,8 @@ export default function ProjectLayout({ children, projectId }: ProjectLayoutProp
         {children}
 
         <Footer />
+        
+        <ScrollToTop />
       </div>
     );
   } catch (error) {

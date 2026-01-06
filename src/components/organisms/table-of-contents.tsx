@@ -41,7 +41,7 @@ export default function TableOfContents({ delay = 0 }: TableOfContentsProps) {
   return (
     <div className="hidden lg:block lg:col-span-3">
       <motion.nav
-        className="sticky top-24"
+        className="sticky top-40"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay, ease: "easeOut" }}

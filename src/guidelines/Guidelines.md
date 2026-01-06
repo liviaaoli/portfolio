@@ -17,6 +17,12 @@
   - h3: `text-[clamp(1.125rem,2vw,1.5rem)]` `font-bold` `leading-[1.4]`
 - Corpo: `text-[1rem]` `leading-[1.7]`
 
+## Tipografia e Quebra de Linha
+- **Hifenização Desabilitada**: `hyphens: none` aplicado globalmente para evitar quebras estranhas
+- **Quebras Naturais**: `word-break: normal` e `overflow-wrap: normal` para fluxo de texto natural
+- **Títulos**: `word-break: keep-all` para evitar quebras indesejadas em títulos
+- **Objetivo**: Manter o texto fluindo naturalmente sem quebras forçadas ou hifenização automática
+
 ## Tokens de Cor (CSS Variables em globals.css)
 As cores do Tailwind mapeiam para variáveis CSS em HSL, garantindo consistência entre temas e utilitários.
 
@@ -85,6 +91,21 @@ Verificações com a paleta atual:
 - Button: `inline-flex`, `border-border`, `hover:bg-foreground hover:text-background`, `.focus-ring` no elemento focável; alvo acessível (altura efetiva ~44px)
 - NavLink / NavItem / SocialLink / Logo: usam `text-muted-foreground` com `hover:text-foreground`, `.focus-ring` e `rounded-sm`
 - Ícones (Phosphor): `weight="bold"`. Tamanhos: 14px em links/botões; 20px Navbar/Footer; 24px em estatísticas
+- **Product Logos**: Tamanhos padronizados - `h-8` (32px) em ProjectHero; `h-7` (28px) em ProjectCard. Usar `w-auto object-contain` para manter proporção. Fallback para texto com `text-[12px] uppercase tracking-widest font-bold text-muted-foreground`
+
+## Interatividade Mobile
+- **Touch Targets**: Todos os elementos interativos devem ter `min-h-[44px]` para acessibilidade
+- **Active States**: Usar `active:scale-95` em cards e elementos tocáveis para feedback tátil
+- **Hover vs Touch**: Detectar dispositivos móveis e aplicar comportamentos diferentes:
+  - Desktop: Manter hover effects (`group-hover:`)
+  - Mobile: Mostrar conteúdo sempre visível ou usar click/tap para interações
+- **Responsive Grid**: Bento Grid deve empilhar em coluna única no mobile (`grid-cols-1`) com `gap-6` para espaçamento confortável
+- **Visual Indicators**: Em elementos interativos mobile, adicionar ícones de dica (ex: `ArrowsClockwiseIcon`) para indicar funcionalidade
+- **Sticky Headers Mobile**: 
+  - Altura reduzida: `h-12` (48px) vs `h-14` (56px) desktop
+  - Conteúdo mínimo: Apenas botão voltar (só ícone) + título truncado
+  - Ações secundárias: Transformar em ícones discretos (`LinkIcon` para links externos)
+  - Barra de progresso: Manter sutil com `h-0.5` (2px)
 
 ## Microinterações
 - Transições moderadas, preferir opacidade/escala. Evitar grandes deslocamentos

@@ -42,7 +42,9 @@ export default function Home() {
   const projects = [
     {
       id: 'yrden',
-      title: 'Yrden — De 60 minutos de espera a um onboarding produtivo',
+      productName: 'Yrden',
+      productLogo: '/logos/yrden-logo.svg',
+      title: 'De 60 minutos de espera a um onboarding produtivo',
       description: 'Um case sobre como transformei uma limitação técnica em uma jornada de boas-vindas de valor',
       link: '/projects/yrden',
       imageUrl: 'https://images.unsplash.com/photo-1618761714954-0b8cd0026356?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
@@ -51,7 +53,9 @@ export default function Home() {
     },
     {
       id: 'axiom',
-      title: 'Axiom — Implementei múltiplas visualizações',
+      productName: 'Axiom',
+      productLogo: '/logos/axiom-logo.svg',
+      title: 'Implementei múltiplas visualizações',
       description: 'Redesenhei a interface de análise de dados permitindo que usuários alternem entre diferentes visões',
       link: '#',
       imageUrl: 'https://images.unsplash.com/photo-1759661966728-4a02e3c6ed91?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
@@ -60,7 +64,9 @@ export default function Home() {
     },
     {
       id: 'nexus',
-      title: 'Nexus — Criei um Design System escalável',
+      productName: 'Nexus',
+      productLogo: '/logos/nexus-logo.svg',
+      title: 'Criei um Design System escalável',
       description: 'Desenvolvi um Design System completo para produtos B2B com foco em consistência e eficiência',
       link: '#',
       imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
@@ -69,7 +75,9 @@ export default function Home() {
     },
     {
       id: 'pulse',
-      title: 'Pulse — Criei dashboard de métricas em tempo real',
+      productName: 'Pulse',
+      productLogo: '/logos/pulse-logo.svg',
+      title: 'Criei dashboard de métricas em tempo real',
       description: `Projetei interface intuitiva para visualização de dados complexos com foco na experiência do usuário analista`,
       link: '#',
       imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',

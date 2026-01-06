@@ -28,13 +28,32 @@
     --border: 210 17% 98% / 0.24;
   }
 
-  /* Tipografia escalável e acessível (Guidelines) */
-  h1 { @apply text-[clamp(2rem,4vw,3rem)] font-bold leading-[1.1] -tracking-[0.03em] text-balance hyphens-none; }
-  h2 { @apply text-[clamp(1.5rem,3vw,2rem)] font-bold leading-[1.2] -tracking-[0.02em] text-balance hyphens-none; }
-  h3 { @apply text-[clamp(1.125rem,2vw,1.5rem)] font-bold leading-[1.4] text-balance hyphens-none; }
+  /* Desabilitar hifenização globalmente */
+  * {
+    hyphens: none;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
+    word-break: normal;
+    overflow-wrap: normal;
+  }
+
+  /* Tipografia escalável e acessível */
+  h1, h2, h3, h4, h5, h6 { 
+    @apply font-bold;
+    hyphens: none;
+    -webkit-hyphens: none;
+    word-break: keep-all;
+  }
   
-  /* Garantindo legibilidade do corpo do texto */
-  p, li { @apply text-[1rem] leading-[1.7] hyphens-auto text-pretty; }
+  h1 { @apply text-[clamp(2rem,4vw,3rem)] leading-[1.1] -tracking-[0.03em]; }
+  h2 { @apply text-[clamp(1.5rem,3vw,2rem)] leading-[1.2] -tracking-[0.02em]; }
+  h3 { @apply text-[clamp(1.125rem,2vw,1.5rem)] leading-[1.4]; }
+  
+  /* Parágrafos sem quebras forçadas */
+  p { 
+    @apply text-[1rem] leading-[1.7];
+    word-break: normal;
+  }
   
   body {
     @apply bg-background text-foreground font-sans antialiased selection:bg-foreground selection:text-background;

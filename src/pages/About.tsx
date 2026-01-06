@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import {
   BriefcaseIcon,
   GraduationCapIcon,
@@ -6,16 +6,59 @@ import {
   CameraIcon,
   GameControllerIcon,
   CatIcon,
-  BarbellIcon
+  BarbellIcon,
+  ArrowsClockwiseIcon
 } from '@phosphor-icons/react';
 import FadeInView from '../components/atoms/fade-in-view';
 import SocialLink from '../components/atoms/social-link';
 import Button from '../components/atoms/button';
 
 export default function About() {
+  const [isFlipped, setIsFlipped] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
   useEffect(() => {
     window.scrollTo(0, 0);
+    
+    // Detect mobile/touch devices
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768 || 'ontouchstart' in window);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
+
+  const handlePhotoInteraction = () => {
+    if (isMobile) {
+      setIsFlipped(!isFlipped);
+    }
+  };
+
+  const hobbies = [
+    { 
+      icon: CameraIcon, 
+      label: "Com a câmera na mão",
+      detail: "Capturando momentos únicos"
+    },
+    { 
+      icon: GameControllerIcon, 
+      label: "Mergulhada nos games",
+      detail: "RPGs e aventuras épicas"
+    },
+    { 
+      icon: CatIcon, 
+      label: "Mimando meu gato",
+      detail: "Melhor companheiro de trabalho"
+    },
+    { 
+      icon: BarbellIcon, 
+      label: "Gastando energia no treino",
+      detail: "Kickboxing e endorfina"
+    }
+  ];
 
   return (
     <main className="max-w-[1040px] mx-auto px-6 md:px-10 w-full">
@@ -25,17 +68,53 @@ export default function About() {
         <section className="mb-20">
           <FadeInView>
             <div className="flex flex-col items-center text-center">
-              <div className="w-36 h-36 md:w-52 md:h-52 mb-8 relative group">
+              <div 
+                className="w-36 h-36 md:w-52 md:h-52 mb-8 relative group cursor-pointer min-h-[44px] focus-ring rounded-full"
+                onClick={handlePhotoInteraction}
+                tabIndex={0}
+                role="button"
+                aria-label={isMobile ? "Tocar para alternar entre foto profissional e casual" : "Foto de Lívia Miranda"}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    handlePhotoInteraction();
+                  }
+                }}
+              >
                 <img
                   alt="Foto de Lívia Miranda"
-                  className="w-full h-full object-cover rounded-full border border-border/50 relative z-10 bg-muted"
+                  className={`w-full h-full object-cover rounded-full border border-border/50 relative z-10 bg-muted transition-opacity duration-300 ${
+                    isFlipped ? 'opacity-0' : 'opacity-100'
+                  }`}
                   src="/eu.jpg"
                   loading="eager"
                   decoding="async"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                  }}
                 />
-                <div className="absolute bottom-2 right-2 bg-background border border-border p-2.5 rounded-full z-20 text-foreground rotate-12 group-hover:rotate-0 transition-transform duration-300">
-                  <HandWavingIcon size={20} weight="bold" className="group-hover:animate-pulse" />
+                <img
+                  alt="Foto casual de Lívia Miranda"
+                  className={`absolute inset-0 w-full h-full object-cover rounded-full border border-border/50 z-10 bg-muted transition-opacity duration-300 ${
+                    isFlipped ? 'opacity-100' : 'opacity-0'
+                  }`}
+                  src="/eu-casual.jpg"
+                  loading="lazy"
+                  decoding="async"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                  }}
+                />
+                <div className={`absolute bottom-2 right-2 bg-background border border-border p-2.5 rounded-full z-20 text-foreground transition-transform duration-300 hover:scale-110 group hover:rotate-0 ${
+                  isFlipped ? 'rotate-0' : 'rotate-12'
+                }`}>
+                  <HandWavingIcon size={20} weight="bold" />
                 </div>
+                {isMobile && (
+                  <div className="absolute top-2 right-2 bg-background/80 border border-border p-1.5 rounded-full z-20 text-muted-foreground">
+                    <ArrowsClockwiseIcon size={14} weight="bold" />
+                  </div>
+                )}
               </div>
               
               <div className="space-y-6 max-w-[70ch] mx-auto">
@@ -54,12 +133,14 @@ export default function About() {
           </FadeInView>
         </section>
 
-        {/* CONTEXTO VISUAL */}
-        <section className="mb-16">
+        {/* BENTO GRID - CONTEXTO PROFISSIONAL */}
+        <section className="mb-12">
           <FadeInView delay={0.2}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[800px] mx-auto">
-              <div className="flex items-center gap-4 p-6 rounded-sm hover:bg-muted transition-colors group">
-                <div className="p-3 bg-muted rounded-sm text-foreground">
+              
+              {/* Card Trabalho */}
+              <div className="flex items-center gap-4 p-6 rounded-sm hover:bg-muted active:scale-95 transition-all duration-300 group border border-border/30 hover:border-border min-h-[44px]">
+                <div className="p-3 bg-muted rounded-sm text-foreground group-hover:scale-110 transition-transform">
                   <BriefcaseIcon size={24} weight="bold" />
                 </div>
                 <div>
@@ -71,8 +152,9 @@ export default function About() {
                 </div>
               </div>
 
-              <div className="flex items-center gap-4 p-6 rounded-sm hover:bg-muted transition-colors group">
-                <div className="p-3 bg-muted rounded-sm text-foreground">
+              {/* Card Estudos */}
+              <div className="flex items-center gap-4 p-6 rounded-sm hover:bg-muted active:scale-95 transition-all duration-300 group border border-border/30 hover:border-border min-h-[44px]">
+                <div className="p-3 bg-muted rounded-sm text-foreground group-hover:scale-110 transition-transform">
                   <GraduationCapIcon size={24} weight="bold" />
                 </div>
                 <div>
@@ -87,51 +169,41 @@ export default function About() {
           </FadeInView>
         </section>
 
-        {/* HOBBIES */}
-        <section className="mb-20">
+        {/* TRANSIÇÃO PARA HOBBIES */}
+        <section className="mb-12">
           <FadeInView delay={0.3}>
-            <div className="text-center mb-8">
-              <p className="text-muted-foreground text-[12px] leading-[1.7] uppercase tracking-widest font-bold">
-                Quando desconecto, estou:
+            <div className="text-center max-w-[60ch] mx-auto">
+              <p className="text-[1rem] leading-[1.7] text-muted-foreground">
+                E para criar experiências reais, gosto de viver o mundo real. Quando desconecto do trabalho:
               </p>
             </div>
-            
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-[700px] mx-auto">
-              <div className="flex flex-col items-center gap-3 p-4 rounded-sm hover:bg-muted transition-colors group">
-                <div className="p-3 bg-muted rounded-sm text-foreground">
-                  <CameraIcon size={20} weight="bold" />
-                </div>
-                <span className="text-[12px] leading-[1.7] text-muted-foreground group-hover:text-foreground transition-colors text-center">
-                  Com a câmera na mão
-                </span>
-              </div>
+          </FadeInView>
+        </section>
 
-              <div className="flex flex-col items-center gap-3 p-4 rounded-sm hover:bg-muted transition-colors group">
-                <div className="p-3 bg-muted rounded-sm text-foreground">
-                  <GameControllerIcon size={20} weight="bold" />
+        {/* BENTO GRID - HOBBIES */}
+        <section className="mb-20">
+          <FadeInView delay={0.4}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-4 max-w-[800px] mx-auto">
+              {hobbies.map((hobby, index) => (
+                <div 
+                  key={index}
+                  className="group flex flex-col items-center gap-4 p-6 rounded-sm border border-border/30 hover:border-border hover:bg-muted/50 active:scale-95 transition-all duration-300 md:hover:scale-105 cursor-default min-h-[44px]"
+                >
+                  <div className="p-4 bg-muted rounded-sm text-foreground group-hover:scale-110 md:group-hover:rotate-6 transition-all duration-300">
+                    <hobby.icon size={20} weight="bold" className="md:group-hover:animate-pulse" />
+                  </div>
+                  <div className="text-center">
+                    <span className="text-[12px] leading-[1.7] text-muted-foreground md:group-hover:text-foreground transition-colors font-medium block">
+                      {hobby.label}
+                    </span>
+                    <span className={`text-[10px] leading-[1.7] text-muted-foreground/70 md:group-hover:text-muted-foreground transition-colors block mt-1 ${
+                      isMobile ? 'opacity-100' : 'opacity-0 md:group-hover:opacity-100'
+                    }`}>
+                      {hobby.detail}
+                    </span>
+                  </div>
                 </div>
-                <span className="text-[12px] leading-[1.7] text-muted-foreground group-hover:text-foreground transition-colors text-center">
-                  Mergulhada nos games
-                </span>
-              </div>
-
-              <div className="flex flex-col items-center gap-3 p-4 rounded-sm hover:bg-muted transition-colors group">
-                <div className="p-3 bg-muted rounded-sm text-foreground">
-                  <CatIcon size={20} weight="bold" />
-                </div>
-                <span className="text-[12px] leading-[1.7] text-muted-foreground group-hover:text-foreground transition-colors text-center">
-                  Mimando meu gato
-                </span>
-              </div>
-
-              <div className="flex flex-col items-center gap-3 p-4 rounded-sm hover:bg-muted transition-colors group">
-                <div className="p-3 bg-muted rounded-sm text-foreground">
-                  <BarbellIcon size={20} weight="bold" />
-                </div>
-                <span className="text-[12px] leading-[1.7] text-muted-foreground group-hover:text-foreground transition-colors text-center">
-                  Gastando energia no treino
-                </span>
-              </div>
+              ))}
             </div>
           </FadeInView>
         </section>
